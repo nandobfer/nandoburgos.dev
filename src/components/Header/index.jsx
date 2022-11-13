@@ -8,6 +8,10 @@ import COLORS from '../../sass/_colors.scss'
 export const Header = () => {
     const [homeIconColor, setHomeIconColor] = useState('white')
     const [githubIconColor, setGithubIconColor] = useState('white')
+
+    const openURL = (url) => {
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
     
     return (
         <div className="Header-component">
@@ -26,7 +30,8 @@ export const Header = () => {
                 <GitHubIcon 
                     onMouseEnter={() => setGithubIconColor(COLORS.blue_light)} 
                     onMouseLeave={() => setGithubIconColor('white')} 
-                    sx={{ color: githubIconColor, fontSize: 70 }} />
+                    sx={{ color: githubIconColor, fontSize: 70 }} 
+                    onClick={openURL('https://github.com/nandobfer')} />
             </div>
         </div>
     )
