@@ -3,7 +3,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import { useState } from 'react';
-import { Form } from 'react-burgos';
+import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
 const Cheat = ({ cheat, theme }) => {
@@ -11,7 +11,9 @@ const Cheat = ({ cheat, theme }) => {
     return (
         <div className="Cheat-component">
             <p className="cheat-title">{cheat.title}</p>
-            <p className="cheat-description">{cheat.description}</p>
+            {cheat.description.split('<br>').map(item => {
+                return <p key={item} className="cheat-description">{item}</p>
+            })}
             <hr style={{borderColor: theme}} />
         </div>
     )
@@ -74,11 +76,11 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
                         <div className="input-wrapper">
                             <div className="input-container">
                                 <label htmlFor="title">Título</label>
-                                <input style={{outlineColor: theme}} id='title' />
+                                <Input style={{outlineColor: theme}} id='title' />
                             </div>
                             <div className="input-container">
                                 <label htmlFor="description">Descrição</label>
-                                <input style={{outlineColor: theme}} id='description' />
+                                <Input style={{outlineColor: theme}} id='description' />
                             </div>
                             <div className="check-icon-container">
                                 <DisabledByDefaultIcon onMouseEnter={() => setXIconColor(theme)}

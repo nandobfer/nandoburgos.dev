@@ -3,8 +3,6 @@ import './style.scss';
 import COLORS from '../../sass/_colors.scss'
 import { useEffect, useState } from 'react';
 import { api } from '../../api';
-import { Route, Routes } from 'react-router-dom';
-import { Home } from '../Home';
 import { LanguageSheet } from '../../components/LanguageSheet';
 
 export const Cheatsheet = () => {
