@@ -58,6 +58,10 @@ export const Cheatsheet = () => {
         getSheet()
     }, [language])
 
+    useEffect(() => {
+        document.title = 'NandoBurgos.dev - Cheat-Sheet'
+    }, [])
+
     return (
         <div className="Cheatsheet-page">
             <div className="languages-container">

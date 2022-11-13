@@ -24,3 +24,15 @@
         border-color: $blue;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .Home-page {
+        
+        > div {
+
+            > p {
+                font-size: 46px;
+            }
+        }
+    }
+}
