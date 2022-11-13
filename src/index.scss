@@ -1,0 +1,56 @@
+@font-face {
+	font-family: Arciform Sans;
+	src: url("./fonts/Arciform.ttf") ;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Fira Code;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+div {
+    display: flex;
+}
+
+section {
+    display: contents;
+}
+
+img {
+    object-fit: contain;
+}
+
+.triangle {
+    width: 0vw; 
+    height: 0vw; 
+    border: 1vw solid transparent;
+}
