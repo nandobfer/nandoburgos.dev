@@ -1,0 +1,23 @@
+@import '/src/sass/colors';
+
+.Cheatsheet-page {
+    background-color: $background-color;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    padding-top: 10vh;
+
+    > .languages-container {
+        flex: 0.25;
+        flex-direction: column;
+    }
+
+    > .sheet-container {
+        flex: 0.75;
+    }
+
+    > hr {
+        border: none;
+        border-left: solid 5px;
+    }
+}
