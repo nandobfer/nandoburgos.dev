@@ -2,24 +2,85 @@ import { LanguageButton } from '../../components/LanguageButton';
 import './style.scss';
 import COLORS from '../../sass/_colors.scss'
 import { useEffect, useState } from 'react';
+import { api } from '../../api';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from '../Home';
+import { LanguageSheet } from '../../components/LanguageSheet';
 
 export const Cheatsheet = () => {
 
     const [theme, setTheme] = useState('white')
+    const [language, setLanguage] = useState('')
+    const [cheats, setCheats] = useState([])
+
+    const languages = [
+        {
+            name: 'Python',
+            color: COLORS.blue,
+        },
+        {
+            name: 'Git',
+            color: COLORS.green,
+        },
+        {
+            name: 'JavaScript',
+            color: COLORS.yellow,
+        },
+        {
+            name: 'Mysql',
+            color: COLORS.orange,
+        },
+        {
+            name: 'PowerShell',
+            color: COLORS.red,
+        },
+        {
+            name: 'Bash',
+            color: COLORS.pink,
+        },
+    ]
+
+    const getSheet = () => {
+        if (!language) return false
+        api.post('/get_sheet', {language: language.toLowerCase()})
+        .then((response) => {
+            const data = response.data
+            if (data) {
+                setCheats(data)
+            } else {
+                setCheats([])
+            }
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+    }
+
+    useEffect(() => {
+        getSheet()
+    }, [language])
 
     return (
         <div className="Cheatsheet-page">
             <div className="languages-container">
-                <LanguageButton color={COLORS.blue} theme={theme} setTheme={setTheme} >Python</LanguageButton>
-                <LanguageButton color={COLORS.green} theme={theme} setTheme={setTheme} >Git</LanguageButton>
-                <LanguageButton color={COLORS.yellow} theme={theme} setTheme={setTheme} >JavaScript</LanguageButton>
-                <LanguageButton color={COLORS.orange} theme={theme} setTheme={setTheme} >Mysql</LanguageButton>
-                <LanguageButton color={COLORS.red} theme={theme} setTheme={setTheme} >PowerShell</LanguageButton>
-                <LanguageButton color={COLORS.pink} theme={theme} setTheme={setTheme} >Bash</LanguageButton>
+                {languages.map(item => {
+                    return (
+                        <LanguageButton 
+                            key={item.name} 
+                            setLanguage={setLanguage}
+                            theme={{ value: theme, set: setTheme }}
+                            language={item}
+                                >{item.name}
+                        </LanguageButton>
+                    )
+                })}
             </div>
             <hr style={{borderColor: theme}} />
             <div className="sheet-container">
-
+                { cheats 
+                ? <LanguageSheet cheats={cheats} setCheats={setCheats} language={language} theme={theme} />
+                : <h1>tchau</h1>  
+                }
             </div>
         </div>
     )

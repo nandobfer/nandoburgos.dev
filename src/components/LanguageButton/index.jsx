@@ -1,26 +1,29 @@
 import { useEffect, useState } from 'react';
 import './style.scss';
 
-export const LanguageButton = ({ children, language, color, theme, setTheme, onClick }) => {
+export const LanguageButton = ({ children, setLanguage, language, theme, onClick }) => {
     
     const [hovered, setHovered] = useState(false)
     const [active, setActive] = useState(false)
+    language.active = active
+    language.setActive = setActive
 
     useEffect(() => {
-        if(theme != color) {
+        if(theme.value !== language.color) {
             setActive(false)
         }
 
-    }, [theme])
+    }, [theme.value])
 
     const onLanguageClick = () => {
-        setTheme(color)
+        theme.set(language.color)
         setActive(true)
+        setLanguage(children)
     }
     
     return (
         <div className="LanguageButton-component"
-        style={{backgroundColor: active ? color : hovered ? color : null, color: active ? 'black' : hovered ? 'black' : null}} 
+        style={{backgroundColor: active ? language.color : hovered ? language.color : null, color: active ? 'black' : hovered ? 'black' : null}} 
             onMouseEnter={() => setHovered(true)} 
             onMouseLeave={() => setHovered(false)}
             onClick={() => onLanguageClick()} >

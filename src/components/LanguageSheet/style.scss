@@ -1,0 +1,75 @@
+@import '/src/sass/colors';
+
+$title: 28px;
+$description: 20px;
+
+.LanguageSheet-component {
+    flex-direction: column;
+    overflow-y: auto;
+    margin-left: 2vw;
+    padding-right: 1vw;
+    gap: 1vw;
+
+    > .add-cheat-container {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        .add-cheat-icon {
+            cursor: pointer;
+        }
+
+        .input-wrapper {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1vw;
+
+            .input-container{
+                gap: 0.5vw;
+                flex-direction: column;
+    
+                label {
+                    font-size: $title;
+                }
+                input {
+                    font-size: $title;
+                    border-radius: 0.5vw;
+                    padding: 0.1vw 0.8vw;
+                    border: none;
+                }
+                input:focus {
+                    outline: solid 5px;
+                }
+            }
+        }
+
+        .check-icon-container {
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            gap: 2vw;
+        }
+
+
+    }
+}
+
+.Cheat-component {
+    flex-direction: column;
+    gap: 1vw;
+
+    > .cheat-title {
+        font-size: $title;
+    }
+    
+    > .cheat-description {
+        font-size: $description;
+    }
+
+    > hr {
+        width: 100%;
+        border: none;
+        border-top: 1px solid
+    }
+}

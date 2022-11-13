@@ -54,3 +54,23 @@ img {
     height: 0vw; 
     border: 1vw solid transparent;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+  
+::-webkit-scrollbar-track {
+    // box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    // margin: 1.5vw;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
