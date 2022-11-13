@@ -3,7 +3,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import { useState } from 'react';
-import { Form, Input } from 'react-burgos';
+import { Form } from 'react-burgos';
 import { api } from '../../api';
 
 const Cheat = ({ cheat, theme }) => {
@@ -74,11 +74,11 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
                         <div className="input-wrapper">
                             <div className="input-container">
                                 <label htmlFor="title">Título</label>
-                                <Input style={{outlineColor: theme}} id='title' />
+                                <input style={{outlineColor: theme}} id='title' />
                             </div>
                             <div className="input-container">
                                 <label htmlFor="description">Descrição</label>
-                                <Input style={{outlineColor: theme}} id='description' />
+                                <input style={{outlineColor: theme}} id='description' />
                             </div>
                             <div className="check-icon-container">
                                 <DisabledByDefaultIcon onMouseEnter={() => setXIconColor(theme)}
