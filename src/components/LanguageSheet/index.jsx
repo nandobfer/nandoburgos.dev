@@ -2,7 +2,7 @@ import './style.scss';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
@@ -24,6 +24,7 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
     const [iconColor, setIconColor] = useState(theme)
     const [xIconColor, setXIconColor] = useState(theme)
     const [newCheat, setNewCheat] = useState(false)
+    const newCheatRef = useRef(null)
 
     const whiteButtons = () => {
         setIconColor('white')
@@ -60,6 +61,12 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
     }
 
     useEffect(() => {
+        if (newCheat) {
+            newCheatRef.current?.scrollIntoView({ behavior: "smooth" })
+        }
+    }, [newCheat])
+
+    useEffect(() => {
         setNewCheat(false)
 
     }, [language])
@@ -81,7 +88,7 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
                         />
                     </div> : 
                     <Form initialValues={inputs} onSubmit={values => onFormSubmit(values)}>
-                        <div className="input-wrapper">
+                        <div className="input-wrapper" ref={newCheatRef}>
                             <div className="input-container">
                                 <label htmlFor="title">Título</label>
                                 <Input style={{outlineColor: theme}} id='title' />
