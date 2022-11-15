@@ -25,10 +25,6 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
     const [xIconColor, setXIconColor] = useState(theme)
     const [newCheat, setNewCheat] = useState(false)
 
-    const style = {
-        color: 'white'
-    }
-
     const onClickNewCheat = () => {
         setNewCheat(true)
     }
@@ -57,7 +53,7 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
     }
 
     return (
-        <div className="LanguageSheet-component" style={style}>
+        <div className="LanguageSheet-component" >
             {cheats.map(item => {
                 return (
                     <Cheat key={item.id} cheat={item} theme={theme} />
