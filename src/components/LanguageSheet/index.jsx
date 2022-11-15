@@ -2,7 +2,7 @@ import './style.scss';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
@@ -25,12 +25,19 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
     const [xIconColor, setXIconColor] = useState(theme)
     const [newCheat, setNewCheat] = useState(false)
 
+    const whiteButtons = () => {
+        setIconColor('white')
+        setXIconColor('white')
+    }
+
     const onClickNewCheat = () => {
         setNewCheat(true)
+        whiteButtons()
     }
 
     const onClickX = () => {
         setNewCheat(false)
+        whiteButtons()
     }
 
     const onFormSubmit = (values) => {
@@ -51,6 +58,11 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
         title: '',
         description: '',
     }
+
+    useEffect(() => {
+        setNewCheat(false)
+
+    }, [language])
 
     return (
         <div className="LanguageSheet-component" >
