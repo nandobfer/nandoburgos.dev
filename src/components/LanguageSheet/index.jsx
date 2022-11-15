@@ -11,9 +11,7 @@ const CheatLine = ({ cheat, list, id }) => {
     list.push(cheatRef)
     
     return (
-        <section>
-            <p ref={cheatRef} className="cheat-description">{cheat}</p>
-        </section>
+        <p ref={cheatRef} className="cheat-description">{cheat}</p>
     )
 }
 

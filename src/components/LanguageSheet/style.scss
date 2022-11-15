@@ -1,7 +1,7 @@
 @import '/src/sass/colors';
 
 $title: 28px;
-$description: 20px;
+$description: 18px;
 
 .LanguageSheet-component {
     flex-direction: column;
@@ -73,6 +73,7 @@ $description: 20px;
     
     > .cheat-description {
         font-size: $description;
+        cursor: text;
     }
 
     > hr {
