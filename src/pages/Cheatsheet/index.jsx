@@ -10,6 +10,7 @@ export const Cheatsheet = () => {
     const [theme, setTheme] = useState('white')
     const [language, setLanguage] = useState('')
     const [cheats, setCheats] = useState([])
+    const [loaded, setLoaded] = useState(false)
 
     const languages = [
         {
@@ -72,6 +73,7 @@ export const Cheatsheet = () => {
                             setLanguage={setLanguage}
                             theme={{ value: theme, set: setTheme }}
                             language={item}
+                            loaded={loaded}
                                 >{item.name}
                         </LanguageButton>
                     )
