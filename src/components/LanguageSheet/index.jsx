@@ -45,6 +45,7 @@ const Cheat = ({ cheat, theme }) => {
             text += item.current.innerText
             text += '\n'
         }
+        text = text.slice(0, -1)
         navigator.clipboard.writeText(text)
         setCopy(true)
         setHovered(false)
