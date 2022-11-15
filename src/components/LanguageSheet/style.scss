@@ -6,9 +6,8 @@ $description: 20px;
 .LanguageSheet-component {
     flex-direction: column;
     overflow-y: auto;
-    margin-left: 2vw;
-    padding-right: 2vw;
-    gap: 1vw;
+    // margin-left: 2vw;
+    // padding-right: 2vw;
     width: 100%;
 
     > .add-cheat-container {
@@ -58,6 +57,7 @@ $description: 20px;
 
 .Cheat-component {
     flex-direction: column;
+    padding: 1vw 2vw 0;
     gap: 1vw;
 
     > .cheat-title {
@@ -71,6 +71,6 @@ $description: 20px;
     > hr {
         width: 100%;
         border: none;
-        border-top: 1px solid
+        border-bottom: 1px solid
     }
 }

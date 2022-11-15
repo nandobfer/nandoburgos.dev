@@ -7,9 +7,15 @@ import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
 const Cheat = ({ cheat, theme }) => {
+    const [hovered, setHovered] = useState(false)
+
+    const style = {
+        backgroundColor: hovered ? theme : null,
+        color: hovered ? 'black' : 'white',
+    }
 
     return (
-        <div className="Cheat-component">
+        <div className="Cheat-component" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={style}>
             <p className="cheat-title">{cheat.title}</p>
             {cheat.description.split('<br>').map(item => {
                 return <p key={item} className="cheat-description">{item}</p>
