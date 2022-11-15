@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactComponent as PythonIcon } from '../../icons/python.svg';
 import { ReactComponent as GitIcon } from '../../icons/git.svg';
 import { ReactComponent as JavascriptIcon } from '../../icons/javascript.svg';
@@ -25,17 +25,17 @@ export const Home = () => {
                 <p>{'>'}NANDOBURGOS.DEV</p>
             </div>
             <div className="icons-container">
-                <PythonIcon style={{fill: COLORS.blue}} />
-                <GitIcon style={{fill: COLORS.blue}} />
-                <JavascriptIcon style={{fill: COLORS.blue}} />
-                <ReactIcon style={{fill: COLORS.blue}} />
-                <MysqlIcon style={{fill: COLORS.blue}} />
-                <PowershellIcon style={{fill: COLORS.blue}} />
-                <LinuxIcon style={{fill: COLORS.blue}} />
-                <UbuntuIcon style={{fill: COLORS.blue}} />
-                <HtmlIcon style={{fill: COLORS.blue}} />
-                <CssIcon style={{fill: COLORS.blue}} />
-                <SassIcon style={{fill: COLORS.blue}} />
+                <PythonIcon className='icon' />
+                <GitIcon className='icon' />
+                <JavascriptIcon className='icon' />
+                <ReactIcon className='icon' />
+                <MysqlIcon className='icon' />
+                <PowershellIcon className='icon' />
+                <LinuxIcon className='icon' />
+                <UbuntuIcon className='icon' />
+                <HtmlIcon className='icon' />
+                <CssIcon className='icon' />
+                <SassIcon className='icon' />
             </div>
         </div>
     )
