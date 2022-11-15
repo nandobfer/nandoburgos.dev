@@ -8,6 +8,12 @@ export const LanguageButton = ({ children, setLanguage, language, theme, onClick
     language.active = active
     language.setActive = setActive
 
+    const style = {
+        backgroundColor: active ? language.color : hovered ? language.color : null, 
+        color: active ? 'black' : hovered ? 'black' : null,
+        fontWeight: active ? 'bold' : hovered ? 'bold' : null,
+    }
+
     useEffect(() => {
         if(theme.value !== language.color) {
             setActive(false)
@@ -23,7 +29,7 @@ export const LanguageButton = ({ children, setLanguage, language, theme, onClick
     
     return (
         <div className="LanguageButton-component"
-        style={{backgroundColor: active ? language.color : hovered ? language.color : null, color: active ? 'black' : hovered ? 'black' : null}} 
+            style={style} 
             onMouseEnter={() => setHovered(true)} 
             onMouseLeave={() => setHovered(false)}
             onClick={() => onLanguageClick()} >

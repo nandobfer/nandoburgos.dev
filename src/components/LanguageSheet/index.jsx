@@ -6,12 +6,16 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
-const CheatLine = ({ cheat, list, id }) => {
+const CheatLine = ({ cheat, list, hovered }) => {
     const cheatRef = useRef(null)
     list.push(cheatRef)
+
+    const style = {
+        fontWeight: hovered ? 'bold' : null
+    }
     
     return (
-        <p ref={cheatRef} className="cheat-description">{cheat}</p>
+        <p ref={cheatRef} className="cheat-description" style={style} >{cheat}</p>
     )
 }
 
@@ -31,6 +35,10 @@ const Cheat = ({ cheat, theme }) => {
         color: hovered ? 'black' : theme
     }
 
+    const title_style = {
+        fontWeight: hovered ? 'bold' : null
+    }
+
     const onCheatClick = useCallback(() => {
         let text = ''
         for (const item of cheatRefs) {
@@ -45,9 +53,9 @@ const Cheat = ({ cheat, theme }) => {
 
     return (
         <div className="Cheat-component" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={style} onClick={onCheatClick}>
-            <p className="cheat-title">{cheat.title}<span style={copy_style}>COPIADO</span></p>
+            <p className="cheat-title" style={title_style} >{cheat.title}<span style={copy_style}>COPIADO</span></p>
             {cheat_list.map(item => {
-                return <CheatLine key={item} cheat={item} id={cheat_list.indexOf(item)} list={cheatRefs} />
+                return <CheatLine key={item} cheat={item} list={cheatRefs} hovered={hovered} />
             })}
             <hr style={{borderColor: theme}} />
         </div>

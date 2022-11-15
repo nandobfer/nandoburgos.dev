@@ -3,6 +3,12 @@
 	src: url("../public/fonts/FiraCode-Regular.ttf") ;
 }
 
+@font-face {
+	font-family: Fira Code;
+	src: url("../public/fonts/FiraCode-Bold.ttf") ;
+    font-weight: bold;
+}
+
 body {
     color: white;
     margin: 0;
