@@ -7,7 +7,7 @@ export const HeaderButton = ({ children, onClick, color }) => {
 
     return (
         <div className="HeaderButton-component" 
-            style={hovered ? {backgroundColor: color} : null} 
+            style={hovered ? {backgroundColor: color, fontWeight: 'bold'} : null} 
             onMouseEnter={() => setHovered(true)} 
             onMouseLeave={() => setHovered(false)}
             onClick={onClick} >
