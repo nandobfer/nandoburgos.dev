@@ -2,23 +2,54 @@ import './style.scss';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
 
+const CheatLine = ({ cheat, list, id }) => {
+    const cheatRef = useRef(null)
+    list.push(cheatRef)
+    
+    return (
+        <section>
+            <p ref={cheatRef} className="cheat-description">{cheat}</p>
+        </section>
+    )
+}
+
 const Cheat = ({ cheat, theme }) => {
     const [hovered, setHovered] = useState(false)
+    const [copy, setCopy] = useState(false)
+    const cheat_list = cheat.description.split('<br>')
+    const cheatRefs = []
 
     const style = {
         backgroundColor: hovered ? theme : null,
         color: hovered ? 'black' : 'white',
     }
 
+    const copy_style = {
+        opacity: copy ? 1 : 0, 
+        color: hovered ? 'black' : theme
+    }
+
+    const onCheatClick = useCallback(() => {
+        let text = ''
+        for (const item of cheatRefs) {
+            text += item.current.innerText
+            text += '\n'
+        }
+        navigator.clipboard.writeText(text)
+        setCopy(true)
+        setHovered(false)
+        setTimeout(() => setCopy(false), 1000)
+    }, [cheatRefs])
+
     return (
-        <div className="Cheat-component" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={style}>
-            <p className="cheat-title">{cheat.title}</p>
-            {cheat.description.split('<br>').map(item => {
-                return <p key={item} className="cheat-description">{item}</p>
+        <div className="Cheat-component" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} style={style} onClick={onCheatClick}>
+            <p className="cheat-title">{cheat.title}<span style={copy_style}>COPIADO</span></p>
+            {cheat_list.map(item => {
+                return <CheatLine key={item} cheat={item} id={cheat_list.indexOf(item)} list={cheatRefs} />
             })}
             <hr style={{borderColor: theme}} />
         </div>

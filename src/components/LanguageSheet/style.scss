@@ -59,9 +59,16 @@ $description: 20px;
     flex-direction: column;
     padding: 1vw 2vw 0;
     gap: 1vw;
+    cursor: pointer;
 
     > .cheat-title {
         font-size: $title;
+
+        > span {
+            transition-property: opacity;
+            transition-duration: 0.5s;
+            margin-left: 1vw;
+        }
     }
     
     > .cheat-description {
