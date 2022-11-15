@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
 
-    > div {
+    > .title-container {
         background-color: $blue;
         padding: 0.5vw 1vw 0;
         justify-content: center;
@@ -22,6 +22,13 @@
     > hr {
         width: 63vw;
         border-color: $blue;
+    }
+
+    > .icons-container {
+        position: absolute;
+        gap: 2vw;
+        bottom: 0;
+        margin-bottom: 2vw;
     }
 }
 
