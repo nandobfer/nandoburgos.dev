@@ -5,6 +5,8 @@ import DisabledByDefaultIcon from '@mui/icons-material/DisabledByDefault';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Form, Input } from 'react-burgos';
 import { api } from '../../api';
+import { useLogin } from '../../hooks/useLogin';
+import { Dialog } from '@mui/material';
 
 const CheatLine = ({ cheat, list, hovered }) => {
     const cheatRef = useRef(null)
@@ -64,10 +66,15 @@ const Cheat = ({ cheat, theme }) => {
 }
 
 export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
-    
+    const login = useLogin()
+    const newCheatTitleRef = useRef(null)
+    const modalInputRef = useRef(null)
     const [iconColor, setIconColor] = useState(theme)
     const [xIconColor, setXIconColor] = useState(theme)
+    const [newModalCheat, setNewModalCheat] = useState({})
     const [newCheat, setNewCheat] = useState(false)
+    const [showModal, setShowModal] = useState(false)
+    const [loginFeedback, setLoginFeedback] = useState('')
     const newCheatRef = useRef(null)
 
     const whiteButtons = () => {
@@ -85,7 +92,7 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
         whiteButtons()
     }
 
-    const onFormSubmit = (values) => {
+    const saveNewCheat = (values) => {
         api.post('/new_cheat', {...values, language: language.toLowerCase()})
         .then((response) => {
             console.log(response.data)
@@ -99,14 +106,53 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
         })
     }
 
+    const onFormSubmit = (values) => {
+        if (login.value) {
+            saveNewCheat(values)
+        } else {
+            openModal(values)
+        }
+    }
+
+    const tryLogin = (values) => {
+        api.post('/login', {password: values.password})
+        .then(response => {
+            if (response.data.login) {
+                login.setValue(true)
+                setTimeout(() => login.setValue(false), 1000 * 10 * 60)
+                saveNewCheat(newModalCheat)
+                setShowModal(false)
+            } else {
+                setLoginFeedback('Password refused')
+                setTimeout(() => setLoginFeedback(''), 2000)
+            }
+        })
+        .catch(error => {
+            console.error(error)
+        }) 
+    }
+
+    const openModal = (new_cheat) => {
+        setNewModalCheat(new_cheat)
+        setShowModal(true)
+    }
+
     const inputs = {
         title: '',
         description: '',
     }
 
+    const modal_style = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
+
     useEffect(() => {
         if (newCheat) {
             newCheatRef.current?.scrollIntoView({ behavior: "smooth" })
+            newCheatTitleRef.current.focus()
         }
     }, [newCheat])
 
@@ -115,8 +161,29 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
 
     }, [language])
 
+    useEffect(() => {
+        if (showModal) {
+            modalInputRef.current.focus()
+        }
+    }, [showModal])
+
     return (
         <div className="LanguageSheet-component" >
+            <Dialog
+                keepMounted
+                open={showModal}
+                onClose={() => setShowModal(false)}
+                sx={modal_style}
+                >
+                
+                <Form initialValues={{password: ''}} onSubmit={values => tryLogin(values)}>
+                    <div className="password-modal">
+                        <label htmlFor="password">PASSWORD</label>
+                        <Input refs={modalInputRef} id='password' type='password' />
+                        <p>{loginFeedback}</p>
+                    </div>
+                </Form>
+            </Dialog>
             {cheats.map(item => {
                 return (
                     <Cheat key={item.id} cheat={item} theme={theme} />
@@ -135,7 +202,7 @@ export const LanguageSheet = ({ cheats, setCheats, language, theme }) => {
                         <div className="input-wrapper" ref={newCheatRef}>
                             <div className="input-container">
                                 <label htmlFor="title">Título</label>
-                                <Input style={{outlineColor: theme}} id='title' />
+                                <Input refs={newCheatTitleRef} style={{outlineColor: theme}} id='title' />
                             </div>
                             <div className="input-container">
                                 <label htmlFor="description">Descrição</label>

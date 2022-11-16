@@ -10,6 +10,7 @@ $description: 18px;
     // padding-right: 2vw;
     width: 100%;
 
+
     > .add-cheat-container {
         width: 100%;
         justify-content: center;
@@ -82,5 +83,31 @@ $description: 18px;
         width: 100%;
         border: none;
         border-bottom: 1px solid
+    }
+}
+
+.password-modal {
+    flex-direction: column;
+    color: white;
+    background-color: black;
+    border: solid 0.4vw;
+    width: 25vw;
+    height: 10vw;
+    align-items: center;
+    font-size: 32px;
+    padding: 1vw;
+    gap: 0.5vw;
+
+    input {
+        color: white;
+        background-color: transparent;
+        border: none;
+        width: 50%;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    input:focus {
+        outline:none;
     }
 }

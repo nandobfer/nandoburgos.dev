@@ -8532,10 +8532,34 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
-react-burgos@^0.1.3, react-burgos@^0.1.4:
+react-burgos@^0.1.3:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-burgos/-/react-burgos-0.1.4.tgz#013594647f2156e24663dcccc054c34560b82222"
   integrity sha512-Tlf3J8xaufmG/9UVd/2Yl9l5lrfQw2MPc5b8FWYpBdvozhnCvqVeIu1Y5l4eNBjZa08chsIyVdWNrinq7MlTgg==
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+    "@testing-library/jest-dom" "^5.16.5"
+    "@testing-library/react" "^13.4.0"
+    "@testing-library/user-event" "^13.5.0"
+    axios "^0.27.2"
+    formik "^2.2.9"
+    node-sass "^7.0.3"
+    react "^18.2.0"
+    react-burgos "^0.1.3"
+    react-dom "^18.2.0"
+    react-imask "^6.4.3"
+    react-input-mask "^2.0.4"
+    react-loading "^2.0.3"
+    react-router-dom "^6.4.0"
+    react-scripts "5.0.1"
+    react-text-mask "^5.4.3"
+    web-vitals "^2.1.4"
+    yup "^0.32.11"
+
+react-burgos@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-burgos/-/react-burgos-1.1.1.tgz#38a6f2f2df7ac292356ebd600e100ad157a941da"
+  integrity sha512-ORbGZFtihnJcR203Jql7jQi4Zg4p3SkW+dxk3a8JH/cTg+XcLN8ZV23q6ZsyA+ETF/IXGlnxcLBwkJNa2OC6fQ==
   dependencies:
     "@babel/polyfill" "^7.12.1"
     "@testing-library/jest-dom" "^5.16.5"
