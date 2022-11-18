@@ -58,32 +58,49 @@ $description: 18px;
 }
 
 .Cheat-component {
-    flex-direction: column;
-    padding: 1vw 2vw 0;
-    gap: 1vw;
+    flex-direction: row;
+    align-items: center;
     cursor: pointer;
+    
+    > div {
+        flex-direction: column;
+        width: 100%;
+        padding: 1vw 2vw 0;
+        gap: 1vw;
+        
+        > .cheat-title {
+            font-size: $title;
 
-    > .cheat-title {
-        font-size: $title;
+            > span {
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                margin-left: 1vw;
+            }
+        }
+        
+        > .cheat-description {
+            margin-left: 3vw;
+            font-size: $description;
+            // cursor: text;
+        }
 
-        > span {
-            transition-property: opacity;
-            transition-duration: 0.5s;
-            margin-left: 1vw;
+        > hr {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid
         }
     }
-    
-    > .cheat-description {
-        margin-left: 3vw;
-        font-size: $description;
-        // cursor: text;
+
+    .remove-icon {
+        margin-right: 2vw;
     }
 
-    > hr {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid
-    }
+    
+}
+
+.deleted {
+    display: none;
+    visibility: hidden;
 }
 
 .password-modal {

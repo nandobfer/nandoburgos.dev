@@ -37,6 +37,10 @@ export const Cheatsheet = () => {
             name: 'Bash',
             color: COLORS.pink,
         },
+        {
+            name: 'Vim',
+            color: 'pink',
+        },
     ]
 
     const getSheet = () => {
