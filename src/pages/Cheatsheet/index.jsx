@@ -42,7 +42,7 @@ export const Cheatsheet = () => {
             color: COLORS.purple,
         },
         {
-            name: 'To-do',
+            name: 'Todo',
             color: 'white',
         },
     ]
