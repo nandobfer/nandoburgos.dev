@@ -19,7 +19,7 @@ export const Header = () => {
         <div className="Header-component">
             <div className="home-icon icon">
                 <HomeIcon 
-                    onMouseEnter={() => setHomeIconColor(COLORS.blue_light)} 
+                    onMouseEnter={() => setHomeIconColor(COLORS.blue)} 
                     onMouseLeave={() => setHomeIconColor('white')} 
                     sx={{ color: homeIconColor, fontSize: 70 }}
                     onClick={() => navigate('/')} />
@@ -31,7 +31,7 @@ export const Header = () => {
             </div>
             <div className="github-icon icon">
                 <GitHubIcon 
-                    onMouseEnter={() => setGithubIconColor(COLORS.blue_light)} 
+                    onMouseEnter={() => setGithubIconColor(COLORS.blue)} 
                     onMouseLeave={() => setGithubIconColor('white')} 
                     sx={{ color: githubIconColor, fontSize: 70 }} 
                     onClick={() => openURL('https://github.com/nandobfer')} />
