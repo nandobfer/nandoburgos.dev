@@ -39,10 +39,14 @@ export const Cheatsheet = () => {
         },
         {
             name: 'Vim',
-            color: 'pink',
+            color: COLORS.purple,
+        },
+        {
+            name: 'To-do',
+            color: 'white',
         },
     ]
-
+// adicionar seção de categorias ao lado das linguagens, ranger like
     const getSheet = () => {
         if (!language) return false
         api.post('/get_sheet', {language: language.toLowerCase()})
