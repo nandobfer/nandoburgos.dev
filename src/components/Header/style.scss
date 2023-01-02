@@ -24,3 +24,22 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .Header-component {
+
+        .home-icon {
+            margin-top: 180vh;
+        }
+        .github-icon {
+            margin-top: 178vh;
+        }
+
+        .header-buttons {
+            width: 60%;
+            height: 100%;
+            justify-content: space-evenly;
+            gap: 2vw;
+        }
+    }
+}
