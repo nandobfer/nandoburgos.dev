@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
 
-    > .title-container {
+    .title-container {
         background-color: $blue;
         padding: 0.5vw 1vw 0;
         justify-content: center;
@@ -17,11 +17,6 @@
             font-size: 7vw;
             color: black;
         }
-    }
-
-    > hr {
-        width: 63vw;
-        border-color: $blue;
     }
 
 }
