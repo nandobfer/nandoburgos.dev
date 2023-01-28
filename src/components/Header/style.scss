@@ -29,14 +29,25 @@
     .Header-component {
 
         .home-icon {
-            margin-top: 180vh;
+            position: absolute;
+            left: 1vw;
+            top: 89vh;
         }
+        
         .github-icon {
-            margin-top: 178vh;
+            position: absolute;
+            right: 1vw;
+            top: 89vh;
+
+        }
+        
+        svg {
+            width: 15vw;
         }
 
         .header-buttons {
-            width: 60%;
+            padding: 3vw;
+            width: 100%;
             height: 100%;
             justify-content: space-evenly;
             gap: 2vw;

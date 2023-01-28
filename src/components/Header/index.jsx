@@ -26,7 +26,7 @@ export const Header = () => {
             </div>
             <div className="header-buttons">
                 <HeaderButton color={COLORS.blue} onClick={() => navigate('/projects')} >PROJETOS</HeaderButton>
-                <HeaderButton color={COLORS.red} onClick={() => navigate('/cheatsheet')}>CHEAT-SHEET</HeaderButton>
+                <HeaderButton color={COLORS.red} onClick={() => navigate('/cheatsheet')}>CHEATSHEET</HeaderButton>
                 <HeaderButton color={COLORS.yellow} onClick={() => navigate('/about')} > SOBRE</HeaderButton>
             </div>
             <div className="github-icon icon">
