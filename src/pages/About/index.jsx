@@ -16,7 +16,7 @@ export const About = () => {
                 <p>Advanced programming in <span style={{color: COLORS.blue}}>Python</span> (Flask, CRUDs, RPAs)</p>
                 <p>Advanced programming in <span style={{color: COLORS.yellow}}>JavaScript</span> (Node.js, React.js, React Native, jQuery, Electron)</p>
                 <p>Intermediate programming in Luascript</p>
-                <p>Intermediate programming in <span style={{color: COLORS.pink}}>Bash</span> e <span style={{color: COLORS.red}}>Powershell</span></p>
+                <p>Intermediate programming in <span style={{color: COLORS.pink}}>Bash</span> and <span style={{color: COLORS.red}}>Powershell</span></p>
                 <p>Basic programming in C, C++ e C#</p>
                 <p>Basic programming in PHP</p>
                 <p>Aptitude with databases <span style={{color: COLORS.orange}}>Mysql</span> and Sql Server</p>
