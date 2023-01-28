@@ -24,20 +24,6 @@
         border-color: $blue;
     }
 
-    > .icons-container {
-        position: absolute;
-        gap: 3vw;
-        bottom: 0;
-        margin-bottom: 2vw;
-
-        > .icon {
-            fill: $blue;
-        }
-
-        > .icon:hover {
-            fill: $yellow;
-        }
-    }
 }
 
 @media only screen and (max-width: 600px) {

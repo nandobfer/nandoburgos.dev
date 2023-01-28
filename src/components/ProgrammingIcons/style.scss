@@ -1,0 +1,16 @@
+@import '/src/sass/colors';
+
+.ProgrammingIcons-Component {
+    position: absolute;
+    gap: 3vw;
+    bottom: 0;
+    margin-bottom: 2vw;
+
+    > .icon {
+        fill: $blue;
+    }
+
+    > .icon:hover {
+        fill: $yellow;
+    }
+}

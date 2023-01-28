@@ -1,8 +1,25 @@
 @import '/src/sass/colors';
 
 .About-page {
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: black;
     padding-top: 10vh;
+    align-items: center;
+    
+    .languages {
+        flex-direction: column;
+        text-align: justify;
+        margin-top: 7vw;
+        
+        span {
+            font-weight: bold;
+        }
+
+        .contacts {
+            flex-direction: column;
+            margin-bottom: 2vw;
+        }
+    }
 }
