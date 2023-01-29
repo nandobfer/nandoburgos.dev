@@ -29,28 +29,28 @@
     .Header-component {
 
         .home-icon {
-            position: absolute;
-            left: 1vw;
-            top: 89vh;
+            padding-left: 2vw;
+            // position: absolute;
+            // left: 1vw;
+            // top: 89vh;
         }
         
         .github-icon {
-            position: absolute;
-            right: 1vw;
-            top: 89vh;
+            padding-right: 2vw;
+            // position: absolute;
+            // right: 1vw;
+            // top: 89vh;
 
         }
-        
+
         svg {
-            width: 15vw;
+            width: 10vw;
         }
 
         .header-buttons {
-            padding: 3vw;
             width: 100%;
             height: 100%;
             justify-content: space-evenly;
-            gap: 2vw;
         }
     }
 }
