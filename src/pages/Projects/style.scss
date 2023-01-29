@@ -8,3 +8,11 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .Projects-page {
+        text-align: center;
+        font-size: 3vw;
+        padding: 5vw;
+    }
+}
