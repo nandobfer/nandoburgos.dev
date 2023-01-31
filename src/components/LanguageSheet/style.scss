@@ -128,3 +128,33 @@ $description: 18px;
         outline:none;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .LanguageSheet-component {
+        overflow-x: scroll;
+        overflow-y: scroll;
+
+        .add-cheat-icon {
+            svg {
+                width: 10vw;
+            }
+        }
+    }
+
+    .Cheat-component {
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        .cheat-title {
+            font-size: 4vw!important;
+        }
+
+        .cheat-description {
+            font-size: 3vw!important;
+        }
+
+        .remove-icon {
+            width: 10vw;
+        }
+    }
+}

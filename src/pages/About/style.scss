@@ -23,3 +23,20 @@
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .About-page {
+
+        .languages {
+            height: 68vh;
+            overflow-y: scroll;
+            font-size: 3.5vw;
+            padding: 0 5vw;
+            text-align: start;
+
+            .contacts {
+                margin-bottom: 10vw;
+            }
+        }
+    }
+}

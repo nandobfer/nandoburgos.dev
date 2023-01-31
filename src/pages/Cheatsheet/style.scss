@@ -6,6 +6,7 @@
     height: 100vh;
     flex-direction: row;
     padding-top: 10vh;
+    overflow-y: hidden;
 
     > .languages-container {
         flex: 0.25;
@@ -19,5 +20,11 @@
     > hr {
         border: none;
         border-left: solid 5px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .Cheatsheet-page {
+        overflow-x: hidden;
     }
 }
