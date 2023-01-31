@@ -1,8 +1,13 @@
 import './style.scss';
 import COLORS from '../../sass/_colors.scss'
 import { ProgrammingIcons } from '../../components/ProgrammingIcons';
+import { useEffect } from 'react';
 
 export const About = () => {
+
+    useEffect(() => {
+        document.title = 'nandoburgos.dev - About'
+    }, [])
     
     return (
         <div className="About-page">

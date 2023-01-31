@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import './style.scss';
 
 export const Projects = () => {
+
+    useEffect(() => {
+        document.title = 'nandoburgos.dev - Projects'
+    }, [])
     
     return (
         <div className="Projects-page">

@@ -5,7 +5,7 @@ import { ProgrammingIcons } from '../../components/ProgrammingIcons';
 export const Home = () => {
 
     useEffect(() => {
-        document.title = 'NandoBurgos.dev - Início'
+        document.title = 'nandoburgos.dev - Home'
     }, [])
     
     return (
