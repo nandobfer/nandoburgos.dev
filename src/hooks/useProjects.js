@@ -2,6 +2,9 @@ export const useProjects = () => {
     const projects = {
         web: [
             {
+                name: 'my cheatsheet',
+            },
+            {
                 name: 'Agência BOZ',
             },
             {
@@ -33,10 +36,19 @@ export const useProjects = () => {
                 name: 'agesbec gate control',
             },
             {
+                name: 'genetics silico analysis',
+            },
+            {
                 name: 'cpanel accounts backups',
             },
             {
                 name: 'cpanel bandwidth limits',
+            },
+            {
+                name: 'pagseguro challenge decoder',
+            },
+            {
+                name: 'mottu mail trigger',
             },
         ],
         games: [
@@ -44,10 +56,16 @@ export const useProjects = () => {
                 name: 'moon clicker',
             },
             {
+                name: 'moonlight',
+            },
+            {
                 name: 'memory game',
             },
             {
                 name: 'space invaders',
+            },
+            {
+                name: 'fabinho bird',
             },
         ],
     }
