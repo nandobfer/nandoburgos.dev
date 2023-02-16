@@ -5,8 +5,7 @@ import './style.scss';
 const WebProject = ({ project }) => {
     return (
         <div className="web-project">
-            <p>web</p>
-            <p>{project?.name}</p>
+            <iframe width={1000} height={500} src={project?.url} frameborder="0"></iframe>
         </div>
     )
 }
