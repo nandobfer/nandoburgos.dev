@@ -22,6 +22,9 @@ export const useProjects = () => {
             {
                 name: 'Sion',
             },
+            {
+                name: 'Agesbec',
+            },
         ],
         mobile: [
             {
