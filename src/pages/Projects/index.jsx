@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { ProgrammingIcons } from '../../components/ProgrammingIcons';
 import { ProjectsHeader } from '../../components/ProjectsHeader';
+import { ProjectsList } from '../../components/ProjectsList';
 import { ActiveProjectTypeProvider } from '../../contexts/ActiveProjectTypeContext';
 import { useActiveProjectType } from '../../hooks/useActiveProjectType';
 import './style.scss';
@@ -25,9 +26,14 @@ export const Projects = () => {
             <ActiveProjectTypeProvider>
                 <ProjectsHeader theme={{value: theme, setValue: setTheme}} />
                 <hr style={{borderTop: '5px solid '+theme}} />
+                <div className="projects-container">
+                    <ProjectsList />
+                    <hr style={{borderLeft: '5px solid '+theme}} />
+                    <div className="project-container">
+                        <h1>on development</h1>
+                    </div>
+                </div>
 
-                <h1>Still thinking in a fun way to display the projects</h1>
-                <ProgrammingIcons />
             </ActiveProjectTypeProvider>
         </div>
     )

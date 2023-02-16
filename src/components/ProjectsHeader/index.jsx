@@ -18,7 +18,7 @@ const HeaderButton = ({ type, theme, onHeaderClick }) => {
     }
 
     useEffect(() => {
-        if(active_project_type.value != type.name) {
+        if(active_project_type.value.name != type.name) {
             setActive(false)
         } else {
             setActive(true)
@@ -34,7 +34,7 @@ const HeaderButton = ({ type, theme, onHeaderClick }) => {
 }
 
 export const ProjectsHeader = ({ theme }) => {
-    
+
     const active_project_type = useActiveProjectType()
 
     const dev_types = [
@@ -57,7 +57,7 @@ export const ProjectsHeader = ({ theme }) => {
     ]
 
     const onHeaderClick = (type) => {
-        active_project_type.setValue(type.name)
+        active_project_type.setValue(type)
         theme.setValue(type.color)
     }
 

@@ -10,6 +10,23 @@
     hr {
         border-bottom: none;
     }
+
+    .projects-container {
+        width: 100%;
+        height: 100%;
+
+        hr {
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+        }
+
+        .project-container {
+            flex: 0.8;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {

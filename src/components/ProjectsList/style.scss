@@ -1,0 +1,16 @@
+@import '/src/sass/colors';
+
+.ProjectsList-Component {
+    height: 100%;
+    flex: 0.2;
+    flex-direction: column;
+
+    .project-button {
+        height: 3vw;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+    }
+}
