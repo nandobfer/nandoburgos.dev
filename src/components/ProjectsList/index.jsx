@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useActiveProject } from '../../hooks/useActiveProject';
 import { useActiveProjectType } from '../../hooks/useActiveProjectType';
 import { useProjects } from '../../hooks/useProjects';
 import './style.scss';
@@ -39,6 +40,7 @@ const ProjectButton = ({ project, currentProject, onProjectClick }) => {
 export const ProjectsList = () => {
 
     const active_project_type = useActiveProjectType()
+    const active_project = useActiveProject()
     const all_projects = useProjects()
 
     const [projects, setProjects] = useState([])
@@ -46,6 +48,7 @@ export const ProjectsList = () => {
 
     const onProjectClick = (project) => {
         setCurrentProject(project)
+        active_project.setValue(project)
     }
 
     useEffect(() => {

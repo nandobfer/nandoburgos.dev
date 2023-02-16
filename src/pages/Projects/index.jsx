@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { ProgrammingIcons } from '../../components/ProgrammingIcons';
 import { ProjectsHeader } from '../../components/ProjectsHeader';
 import { ProjectsList } from '../../components/ProjectsList';
+import { Project } from '../../components/ProjectsList/Project';
+import { ActiveProjectProvider } from '../../contexts/ActiveProjectContext';
 import { ActiveProjectTypeProvider } from '../../contexts/ActiveProjectTypeContext';
 import { useActiveProjectType } from '../../hooks/useActiveProjectType';
 import './style.scss';
@@ -24,6 +26,7 @@ export const Projects = () => {
     return (
         <div className="Projects-page">
             <ActiveProjectTypeProvider>
+                <ActiveProjectProvider>
                 <ProjectsHeader theme={{value: theme, setValue: setTheme}} />
                 <hr style={{borderTop: '5px solid '+theme}} />
                 <div className="projects-container">
@@ -31,9 +34,11 @@ export const Projects = () => {
                     <hr style={{borderLeft: '5px solid '+theme}} />
                     <div className="project-container">
                         <h1>on development</h1>
+                        <Project />
                     </div>
                 </div>
 
+                </ActiveProjectProvider>
             </ActiveProjectTypeProvider>
         </div>
     )
