@@ -32,10 +32,7 @@ export const Projects = () => {
                 <div className="projects-container">
                     <ProjectsList />
                     <hr style={{borderLeft: '5px solid '+theme}} />
-                    <div className="project-container">
-                        <h1>on development</h1>
-                        <Project />
-                    </div>
+                    <Project />
                 </div>
 
                 </ActiveProjectProvider>
