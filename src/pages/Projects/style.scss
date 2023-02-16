@@ -1,12 +1,15 @@
 @import '/src/sass/colors';
 
 .Projects-page {
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: black;
     padding-top: 10vh;
-    justify-content: center;
-    align-items: center;
+
+    hr {
+        border-bottom: none;
+    }
 }
 
 @media only screen and (max-width: 600px) {
