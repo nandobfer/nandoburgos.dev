@@ -1,17 +1,21 @@
+import { useLanguage } from "./useLanguage"
 import { useTechnologies } from "./useTechnologies"
 
 export const useProjects = () => {
+    const language = useLanguage().value
     const tech = useTechnologies()
     const projects = {
         web: [
             {
-                name: 'Agência BOZ',
+                name: 'BOZ Agency',
+                name_pt: 'Agência BOZ',
                 url: 'https://app.agenciaboz.com.br',
                 technologies: [tech.react, tech.node],
                 description: 'Developed a system for our own agency with multiple functionalities: employees and customers control, register and configurations; tasks distribution (with planner, worker, dates, briefings and recursion assignments); automated advertising requests budgets for customers; statistics visualizations from host server and other.',
             },
             {
                 name: 'my cheatsheet',
+                name_pt: 'colinhas',
                 url: 'https://nandoburgos.dev/cheatsheet',
                 technologies: [tech.react, tech.node],
                 description: 'A cheatsheet for myself, with easy inclusions and deletions, of my working languages and platforms',
@@ -24,6 +28,7 @@ export const useProjects = () => {
             },
             {
                 name: 'SBOP map',
+                name_pt: 'mapa SBOP',
                 url: 'https://sistema.sbop.com.br/mapa',
                 technologies: [tech.python],
                 description: 'Developed webapp containing Brazil’s map divided by states, showing every doctor of the previous system that has a holder subscription plan. Users can search doctors by state, address or name. Ordination by address proximity.',
@@ -36,6 +41,7 @@ export const useProjects = () => {
             },
             {
                 name: 'G2 corretora',
+                name_pt: 'insurer G2',
                 url: 'https://sistema.g2corretora.com.br:5002/',
                 technologies: [tech.python, tech.javascript, tech.mysql],
                 description: 'Developed organization and signup system for customers of an insurer, with a highly customizable table, customizable ordination and notifications.',
@@ -57,6 +63,7 @@ export const useProjects = () => {
         mobile: [
             {
                 name: 'movie list',
+                name_pt: 'lista de filmes',
                 technologies: [tech.reactnative, tech.node, tech.mysql],
             },
         ],
@@ -67,26 +74,32 @@ export const useProjects = () => {
             },
             {
                 name: 'agesbec gate control',
+                name_pt: 'agesbec controle de acesso',
                 technologies: [tech.python, tech.mysql],
             },
             {
                 name: 'genetics silico analysis',
+                name_pt: 'genética análise em silico',
                 technologies: [tech.python],
             },
             {
                 name: 'cpanel accounts backups',
+                name_pt: 'backup de contas do cpanel',
                 technologies: [tech.linux, tech.python],
             },
             {
                 name: 'cpanel bandwidth limits',
+                name_pt: 'limite de largura de banda do cpanel',
                 technologies: [tech.linux, tech.python],
             },
             {
                 name: 'pagseguro challenge decoder',
+                name_pt: 'decodificador do desafio pagseguro',
                 technologies: [tech.python, tech.mysql],
             },
             {
                 name: 'mottu mail trigger',
+                name_pt: 'disparador de email mottu',
                 technologies: [tech.node, tech.linux],
             },
         ],
@@ -100,6 +113,7 @@ export const useProjects = () => {
             },
             {
                 name: 'memory game',
+                name: 'jogo da memória',
                 technologies: [tech.reactnative],
             },
             {

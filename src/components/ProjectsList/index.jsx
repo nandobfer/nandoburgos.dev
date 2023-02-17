@@ -2,11 +2,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useActiveProject } from '../../hooks/useActiveProject';
 import { useActiveProjectType } from '../../hooks/useActiveProjectType';
+import { useLanguage } from '../../hooks/useLanguage';
 import { useProjects } from '../../hooks/useProjects';
 import './style.scss';
 
 const ProjectButton = ({ project, currentProject, onProjectClick }) => {
     const active_project_type = useActiveProjectType()
+    const language = useLanguage().value
 
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
@@ -32,7 +34,7 @@ const ProjectButton = ({ project, currentProject, onProjectClick }) => {
 
     return (
         <div className="project-button" onClick={() => onProjectClick(project)} style={active ? active_style : hover ? active_style : null} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-            <p>{project.name}</p>
+            <p>{language == 'portuguese' ? project?.name_pt ? project.name_pt : project.name : project.name}</p>
         </div>
     )
 }
