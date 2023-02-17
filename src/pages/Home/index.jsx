@@ -11,7 +11,7 @@ export const Home = () => {
     return (
         <div className="Home-page">
             <div className='title-container'>
-                <p>{'>'}NANDOBURGOS.DEV</p>
+                <p>{'>'}nandoburgos.dev</p>
             </div>
             <ProgrammingIcons />
         </div>
