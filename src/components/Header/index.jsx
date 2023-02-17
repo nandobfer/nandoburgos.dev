@@ -6,11 +6,13 @@ import { useState } from 'react';
 import COLORS from '../../sass/_colors.scss'
 import { useNavigate } from 'react-router-dom';
 import { LanguageButtons } from './LanguageButtons';
+import { useLanguage } from '../../hooks/useLanguage';
 
 export const Header = () => {
     const [homeIconColor, setHomeIconColor] = useState('white')
     const [githubIconColor, setGithubIconColor] = useState('white')
     const navigate = useNavigate()
+    const language = useLanguage().value
 
     const openURL = (url) => {
         window.open(url, '_blank', 'noopener,noreferrer');
@@ -26,9 +28,9 @@ export const Header = () => {
                     onClick={() => navigate('/')} />
             </div>
             <div className="header-buttons">
-                <HeaderButton color={COLORS.blue} onClick={() => navigate('/projects')} >PROJETOS</HeaderButton>
-                <HeaderButton color={COLORS.red} onClick={() => navigate('/cheatsheet')}>CHEATSHEET</HeaderButton>
-                <HeaderButton color={COLORS.yellow} onClick={() => navigate('/about')} > SOBRE</HeaderButton>
+                <HeaderButton color={COLORS.blue} onClick={() => navigate('/projects')} >{language == 'portuguese' ? 'projetos' : 'projects'}</HeaderButton>
+                <HeaderButton color={COLORS.red} onClick={() => navigate('/cheatsheet')}>{language == 'portuguese' ? 'colinhas' : 'cheatsheet'}</HeaderButton>
+                <HeaderButton color={COLORS.yellow} onClick={() => navigate('/about')} > {language == 'portuguese' ? 'sobre' : 'about'}</HeaderButton>
                 <LanguageButtons />
             </div>
             <div className="github-icon icon">
