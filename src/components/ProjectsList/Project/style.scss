@@ -5,6 +5,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
+
+    .title {
+        width: 100%;
+        // justify-content: space-around;
+        align-items: center;
+        // flex-direction: column;
+        // align-items: center;
+
+        .icons {
+            gap: 1vw;
+            margin-right: 3vw;
+
+            svg {
+                width: 3.5vw;
+            }
+        }
+    }
     
     .web-project {
         flex-direction: column;
