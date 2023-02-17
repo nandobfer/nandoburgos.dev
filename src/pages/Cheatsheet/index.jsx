@@ -14,35 +14,35 @@ export const Cheatsheet = () => {
 
     const languages = [
         {
-            name: 'Python',
+            name: 'python',
             color: COLORS.blue,
         },
         {
-            name: 'Git',
+            name: 'git',
             color: COLORS.green,
         },
         {
-            name: 'JavaScript',
+            name: 'javascript',
             color: COLORS.yellow,
         },
         {
-            name: 'Mysql',
+            name: 'mysql',
             color: COLORS.orange,
         },
         {
-            name: 'PowerShell',
+            name: 'powerphell',
             color: COLORS.red,
         },
         {
-            name: 'Bash',
+            name: 'bash',
             color: COLORS.pink,
         },
         {
-            name: 'Vim',
+            name: 'vim',
             color: COLORS.purple,
         },
         {
-            name: 'Todo',
+            name: 'todo',
             color: 'white',
         },
     ]
