@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
+import { LanguageContextProvider } from "./contexts/LanguageContext";
 import { LoginProvider } from "./contexts/LoginContext";
 import { About } from "./pages/About";
 import { Cheatsheet } from "./pages/Cheatsheet";
@@ -14,16 +15,18 @@ const App = () => {
   return (
     <div className="App">
         <LoginProvider >
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route index element={<Home />} />
-                    <Route path='/home' element={<Home />} />
-                    <Route path='/cheatsheet' element={<Cheatsheet />} />
-                    <Route path='/projects' element={<Projects />} />
-                    <Route path='/about' element={<About />} />
-                </Routes>
-            </BrowserRouter>
+            <LanguageContextProvider>
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route index element={<Home />} />
+                        <Route path='/home' element={<Home />} />
+                        <Route path='/cheatsheet' element={<Cheatsheet />} />
+                        <Route path='/projects' element={<Projects />} />
+                        <Route path='/about' element={<About />} />
+                    </Routes>
+                </BrowserRouter>
+            </LanguageContextProvider>
         </LoginProvider>
     </div>
         

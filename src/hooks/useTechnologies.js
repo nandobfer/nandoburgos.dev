@@ -19,39 +19,39 @@ export const useTechnologies = () => {
     const technologies = {
         react: {
             name: 'React.js',
-            icon: <ReactIcon style={style} />
+            icon: <ReactIcon key={0} style={style} />
         },
         reactnative: {
             name: 'React Native',
-            icon: <ReactIcon style={style} />
+            icon: <ReactIcon key={1} style={style} />
         },
         node: {
             name: 'Node.js',
-            icon: <JavascriptIcon style={style} />
+            icon: <JavascriptIcon key={2} style={style} />
         },
         javascript: {
             name: 'JavaScript',
-            icon: <JavascriptIcon style={style} />
+            icon: <JavascriptIcon key={3} style={style} />
         },
         python: {
             name: 'Python',
-            icon: <PythonIcon style={style} />
+            icon: <PythonIcon key={4} style={style} />
         },
         mysql: {
             name: 'Mysql',
-            icon: <MysqlIcon style={style} />
+            icon: <MysqlIcon key={5} style={style} />
         },
         linux: {
             name: 'Linux',
-            icon: <LinuxIcon style={style} />
+            icon: <LinuxIcon key={6} style={style} />
         },
         html: {
             name: 'HTML',
-            icon: <HtmlIcon style={style} />
+            icon: <HtmlIcon key={7} style={style} />
         },
         sass: {
             name: 'Sass',
-            icon: <SassIcon style={style} />
+            icon: <SassIcon key={8} style={style} />
         },
     }
 

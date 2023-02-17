@@ -5,6 +5,7 @@ import './style.scss';
 import { useState } from 'react';
 import COLORS from '../../sass/_colors.scss'
 import { useNavigate } from 'react-router-dom';
+import { LanguageButtons } from './LanguageButtons';
 
 export const Header = () => {
     const [homeIconColor, setHomeIconColor] = useState('white')
@@ -28,6 +29,7 @@ export const Header = () => {
                 <HeaderButton color={COLORS.blue} onClick={() => navigate('/projects')} >PROJETOS</HeaderButton>
                 <HeaderButton color={COLORS.red} onClick={() => navigate('/cheatsheet')}>CHEATSHEET</HeaderButton>
                 <HeaderButton color={COLORS.yellow} onClick={() => navigate('/about')} > SOBRE</HeaderButton>
+                <LanguageButtons />
             </div>
             <div className="github-icon icon">
                 <GitHubIcon 

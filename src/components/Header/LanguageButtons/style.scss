@@ -1,0 +1,17 @@
+@import '/src/sass/colors';
+
+.LanguageButtons-Component {
+    position: absolute;
+    flex-direction: column;
+    right: 2vw;
+    top: 0.5vw;
+    gap: 0.5vw;
+
+    p {
+        cursor: pointer;
+    }
+
+    p:hover {
+        color: $blue;
+    }
+}
