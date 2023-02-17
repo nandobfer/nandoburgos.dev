@@ -30,7 +30,7 @@ export const Cheatsheet = () => {
             color: COLORS.orange,
         },
         {
-            name: 'powerphell',
+            name: 'powershell',
             color: COLORS.red,
         },
         {
