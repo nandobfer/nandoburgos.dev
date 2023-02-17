@@ -31,13 +31,13 @@ export const useProjects = () => {
             {
                 name: 'Bapka',
                 url: 'https://cupons.bapkasorvetes.com.br/',
-                technologies: [tech.react, tech.node],
+                technologies: [tech.react, tech.node, tech.mysql],
                 description: 'Vouchers system for an ice-cream parlor with several branches, sharing customers registers but voucher quantity is shop exclusive. Customer panel: Is possible to see how many vouchers the customer has in each shop, and change personal info. Partner panel: Is possible to sign new customers in the system (or only in his shop, for already signed customers), search customers by identification number and add or subtract vouchers.',
             },
             {
                 name: 'G2 corretora',
                 url: 'https://sistema.g2corretora.com.br:5002/',
-                technologies: [tech.python, tech.javascript],
+                technologies: [tech.python, tech.javascript, tech.mysql],
                 description: 'Developed organization and signup system for customers of an insurer, with a highly customizable table, customizable ordination and notifications.',
             },
             {
@@ -50,53 +50,65 @@ export const useProjects = () => {
             {
                 name: 'Agesbec',
                 url: 'https://cooperativasion.com.br/',
-                technologies: [tech.react, tech.node],
+                technologies: [tech.react, tech.node, tech.mysql],
                 description: 'Webviewer application made for easy table visualization of data sent to IRS from another project, agesbec rpa, with funcionality to try to resend failed api requests',
             },
         ],
         mobile: [
             {
                 name: 'movie list',
+                technologies: [tech.reactnative, tech.node, tech.mysql],
             },
         ],
         rpa: [
             {
                 name: 'manservmed',
+                technologies: [tech.python, tech.mysql],
             },
             {
                 name: 'agesbec gate control',
+                technologies: [tech.python, tech.mysql],
             },
             {
                 name: 'genetics silico analysis',
+                technologies: [tech.python],
             },
             {
                 name: 'cpanel accounts backups',
+                technologies: [tech.linux, tech.python],
             },
             {
                 name: 'cpanel bandwidth limits',
+                technologies: [tech.linux, tech.python],
             },
             {
                 name: 'pagseguro challenge decoder',
+                technologies: [tech.python, tech.mysql],
             },
             {
                 name: 'mottu mail trigger',
+                technologies: [tech.node, tech.linux],
             },
         ],
         games: [
             {
                 name: 'moon clicker',
+                technologies: [tech.reactnative],
             },
             {
                 name: 'moonlight',
             },
             {
                 name: 'memory game',
+                technologies: [tech.reactnative],
             },
             {
                 name: 'space invaders',
+                technologies: [tech.python],
             },
             {
                 name: 'fabinho bird',
+                technologies: [tech.python],
             },
         ],
     }

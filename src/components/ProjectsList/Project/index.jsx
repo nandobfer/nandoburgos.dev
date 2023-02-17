@@ -4,8 +4,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import './style.scss';
 import { useState } from "react";
 
-const WebProject = ({ project, theme }) => {
-
+const Title = ({ project, theme }) => {
     const [hover, setHover] = useState(false)
 
     const info_style = {
@@ -18,47 +17,48 @@ const WebProject = ({ project, theme }) => {
     }  
 
     return (
-        <div className="web-project">
-            <div className="title">
-                <div className="icons">
-                    {project?.technologies?.map(technology => {
-                        return technology.icon
-                    })}
-                </div>
-                <h1>{project?.name}</h1>
-                <InfoIcon sx={[info_style, hover ? {width: '4.5vw', height: '4.5vw'} : null]} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} />
+        <div className="title">
+            <div className="icons">
+                {project?.technologies?.map(technology => {
+                    return technology.icon
+                })}
             </div>
+            <h1>{project?.name}</h1>
+            <InfoIcon sx={[info_style, hover ? {width: '4.5vw', height: '4.5vw'} : null]} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} />
+        </div>
+    )
+}
+
+const WebProject = ({ project, theme }) => {
+
+    return (
+        <div className="web-project">
+            <Title project={project} theme={theme} />
             <iframe style={{width: '65vw', height: '30vw'}} src={project?.url} frameborder="0"></iframe>
         </div>
     )
 }
 
-const MobileProject = ({ project }) => {
+const MobileProject = ({ project, theme }) => {
     return (
         <div className="web-project">
-            <h1>on development</h1>
-            <p>mobile</p>
-            <p>{project?.name}</p>
+            <Title project={project} theme={theme} />
         </div>
     )
 }
 
-const RpaProject = ({ project }) => {
+const RpaProject = ({ project, theme }) => {
     return (
         <div className="web-project">
-            <h1>on development</h1>
-            <p>rpa</p>
-            <p>{project?.name}</p>
+            <Title project={project} theme={theme} />
         </div>
     )
 }
 
-const GameProject = ({ project }) => {
+const GameProject = ({ project, theme }) => {
     return (
         <div className="web-project">
-            <h1>on development</h1>
-            <p>game</p>
-            <p>{project?.name}</p>
+            <Title project={project} theme={theme} />
         </div>
     )
 }
@@ -74,11 +74,11 @@ export const Project = ({ }) => {
             project_type.name == 'web' ? 
             <WebProject project={project} theme={project_type.color} /> : 
             project_type.name == 'mobile' ? 
-            <MobileProject project={project} /> : 
+            <MobileProject project={project} theme={project_type.color} /> : 
             project_type.name == 'rpa' ? 
-            <RpaProject project={project} /> : 
+            <RpaProject project={project} theme={project_type.color} /> : 
             project_type.name == 'games' ? 
-            <GameProject project={project} /> : 
+            <GameProject project={project} theme={project_type.color} /> : 
             null
             }
         </div>
