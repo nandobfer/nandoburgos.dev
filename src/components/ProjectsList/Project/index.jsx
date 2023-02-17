@@ -14,7 +14,7 @@ const WebProject = ({ project }) => {
                 </div>
                 <h1>{project?.name}</h1>
             </div>
-            <iframe width={1000} height={500} src={project?.url} frameborder="0"></iframe>
+            <iframe style={{width: '65vw', height: '30vw'}} src={project?.url} frameborder="0"></iframe>
         </div>
     )
 }
