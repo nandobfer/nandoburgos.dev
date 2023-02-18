@@ -53,7 +53,7 @@ export const useProjects = () => {
             },
             {
                 name: 'Agesbec',
-                url: '#',
+                url: '',
                 technologies: [tech.react, tech.node, tech.mysql],
                 description: 'Webviewer application made for easy table visualization of data sent to IRS from another project, agesbec rpa, with funcionality to try to resend failed api requests',
                 description_pt: 'Webviewer feita para uma fácil visualização em tabela dos dados enviados para a Receita Federal de outro projeto, RPA agesbec, com funcionalidade de reenvio de requisições falhas na API da Receita',
