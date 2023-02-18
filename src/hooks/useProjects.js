@@ -22,14 +22,14 @@ export const useProjects = () => {
             },
             {
                 name: 'SBOP',
-                url: 'https://sistema.sbop.com.br',
+                url: 'https://sistema.sbop.com.br:5001',
                 technologies: [tech.python, tech.javascript],
                 description: 'Completely developed a system for a society of ophthalmologists. The doctor can log in and edit his personal and professional info, his profile picture, change his subscription plan in the society with an automated payment system, restrict content that is exclusive to each subscription plan, make requests of membership certificates and others. Also developed an administration panel for this system, where admin flagged accounts can search, alter or remove registers and post or edit restricted contents.',
             },
             {
                 name: 'SBOP map',
                 name_pt: 'mapa SBOP',
-                url: 'https://sistema.sbop.com.br/mapa',
+                url: 'https://sistema.sbop.com.br:5001/mapa',
                 technologies: [tech.python],
                 description: 'Developed webapp containing Brazil’s map divided by states, showing every doctor of the previous system that has a holder subscription plan. Users can search doctors by state, address or name. Ordination by address proximity.',
             },
