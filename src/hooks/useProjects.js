@@ -42,7 +42,7 @@ export const useProjects = () => {
             {
                 name: 'G2 corretora',
                 name_pt: 'insurer G2',
-                url: 'https://sistema.g2corretora.com.br:5002/',
+                url: 'https://sistema.g2corretora.com.br:5002/tabela',
                 technologies: [tech.python, tech.javascript, tech.mysql],
                 description: 'Developed organization and signup system for customers of an insurer, with a highly customizable table, customizable ordination and notifications.',
             },
