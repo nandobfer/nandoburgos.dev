@@ -52,7 +52,7 @@ export const ProjectsHeader = ({ theme }) => {
         },
         {
             name: 'games',
-            color: COLORS.red,
+            color: COLORS.purple,
         },
     ]
 
