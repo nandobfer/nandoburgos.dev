@@ -2,7 +2,8 @@ import { useActiveProject } from "../../../hooks/useActiveProject"
 import { useActiveProjectType } from "../../../hooks/useActiveProjectType"
 import InfoIcon from '@mui/icons-material/Info';
 import './style.scss';
-import { useState } from "react";
+import ReactLoading from 'react-loading';
+import { useEffect, useState } from "react";
 
 const Title = ({ project, theme }) => {
     const [hover, setHover] = useState(false)
@@ -30,11 +31,19 @@ const Title = ({ project, theme }) => {
 }
 
 const WebProject = ({ project, theme }) => {
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setLoading(true)
+    }, [project])
 
     return (
         <div className="web-project">
             <Title project={project} theme={theme} />
-            <iframe style={{width: '65vw', height: '30vw'}} src={project?.url} frameborder="0"></iframe>
+            <iframe onLoad={() => {setLoading(false)}} style={{width: '65vw', height: '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
+			<div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
+            </div>
         </div>
     )
 }
