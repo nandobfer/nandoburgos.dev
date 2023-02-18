@@ -15,6 +15,21 @@ export const useProjects = () => {
                 description_pt: 'Sistema da própria agência com múltiplas funcionalidades: controle, cadastro e configurações de funcionários e clientes; distribuição de tarefas (com atribuição de responsável, desenvolvedor, datas, briefings e recursividade); orçamento automático de solicitações publicitárias para os clientes; visualização e estatísticas do servidor de hospedagem e outros.',
             },
             {
+                name: 'Bapka',
+                url: 'https://cupons.bapkasorvetes.com.br/',
+                technologies: [tech.react, tech.node, tech.mysql],
+                description: 'Vouchers system for an ice-cream parlor with several branches, sharing customers registers but voucher quantity is shop exclusive. Customer panel: Is possible to see how many vouchers the customer has in each shop, and change personal info. Partner panel: Is possible to sign new customers in the system (or only in his shop, for already signed customers), search customers by identification number and add or subtract vouchers.',
+                description_pt: 'Sistema de cupons para uma sorveteria com diversas filiais, compartilhando cadastro de clientes mas quantidade de cupons exclusiva. Painel do cliente: É possível ver quantos cupons possui em cada loja, alterar dados pessoais. Painel do parceiro: É possível cadastrar novos clientes no sistema (ou apenas na sua loja, para clientes já cadastrados), pesquisar clientes por CPF e inserir ou remover cupons.',
+            },
+            {
+                name: 'Sion',
+                url: 'https://cooperativasion.com.br/',
+                technologies: [tech.react, tech.node],
+                description: 'Webpage developed for a solar power plant company.',
+                description_pt: 'Página web desenvolvidada para uma compania de energia solar.',
+                
+            },
+            {
                 name: 'SBOP',
                 url: 'https://sistema.sbop.com.br:5001',
                 technologies: [tech.python, tech.javascript],
@@ -30,27 +45,12 @@ export const useProjects = () => {
                 description_pt: 'Webapp contendo mapa do Brasil, divido por estados, mostrando todos os médicos do sistema anterior, com assinatura Titular. Podendo buscar por estado, endereço ou nome. Ordenação por proximidade do endereço.',
             },
             {
-                name: 'Bapka',
-                url: 'https://cupons.bapkasorvetes.com.br/',
-                technologies: [tech.react, tech.node, tech.mysql],
-                description: 'Vouchers system for an ice-cream parlor with several branches, sharing customers registers but voucher quantity is shop exclusive. Customer panel: Is possible to see how many vouchers the customer has in each shop, and change personal info. Partner panel: Is possible to sign new customers in the system (or only in his shop, for already signed customers), search customers by identification number and add or subtract vouchers.',
-                description_pt: 'Sistema de cupons para uma sorveteria com diversas filiais, compartilhando cadastro de clientes mas quantidade de cupons exclusiva. Painel do cliente: É possível ver quantos cupons possui em cada loja, alterar dados pessoais. Painel do parceiro: É possível cadastrar novos clientes no sistema (ou apenas na sua loja, para clientes já cadastrados), pesquisar clientes por CPF e inserir ou remover cupons.',
-            },
-            {
                 name: 'insurer G2',
                 name_pt: 'G2 corretora',
                 url: 'https://sistema.g2corretora.com.br:5002/tabela',
                 technologies: [tech.python, tech.javascript, tech.mysql],
                 description: 'Developed organization and signup system for customers of an insurer, with a highly customizable table, customizable ordination and notifications.',
                 description_pt: 'Sistema de organização e cadastro de clientes para uma seguradora, com tabela altamente customizável, com ordenação customizada e notificações.',
-            },
-            {
-                name: 'Sion',
-                url: 'https://cooperativasion.com.br/',
-                technologies: [tech.react, tech.node],
-                description: 'Webpage developed for a solar power plant company.',
-                description_pt: 'Página web desenvolvidada para uma compania de energia solar.',
-                
             },
             {
                 name: 'Agesbec',
