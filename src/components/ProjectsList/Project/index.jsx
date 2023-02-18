@@ -44,7 +44,7 @@ const Description = ({ project, active, theme }) => {
 
 const WebProject = ({ project, theme }) => {
     const [loading, setLoading] = useState(true)
-    const [info, setInfo] = useState(false)
+    const [info, setInfo] = useState(true)
 
     useEffect(() => {
         setLoading(true)
@@ -68,7 +68,7 @@ const MobileProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
 
     useEffect(() => {
-        setInfo(false)
+        setInfo(true)
 
     }, [project])
 
@@ -76,6 +76,7 @@ const MobileProject = ({ project, theme }) => {
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
             <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <p>on development</p>
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
@@ -86,7 +87,7 @@ const RpaProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
 
     useEffect(() => {
-        setInfo(false)
+        setInfo(true)
 
     }, [project])
 
@@ -94,6 +95,7 @@ const RpaProject = ({ project, theme }) => {
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
             <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <p>on development</p>
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
@@ -104,7 +106,7 @@ const GameProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
 
     useEffect(() => {
-        setInfo(false)
+        setInfo(true)
 
     }, [project])
 
@@ -112,6 +114,7 @@ const GameProject = ({ project, theme }) => {
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
             <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <p>on development</p>
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
