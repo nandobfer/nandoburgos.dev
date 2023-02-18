@@ -65,25 +65,55 @@ const WebProject = ({ project, theme }) => {
 }
 
 const MobileProject = ({ project, theme }) => {
+    const [info, setInfo] = useState(false)
+
+    useEffect(() => {
+        setInfo(false)
+
+    }, [project])
+
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} />
+            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
+            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+            </div>
+            <Description project={project} active={info} theme={theme} />
         </div>
     )
 }
 
 const RpaProject = ({ project, theme }) => {
+    const [info, setInfo] = useState(false)
+
+    useEffect(() => {
+        setInfo(false)
+
+    }, [project])
+
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} />
+            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
+            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+            </div>
+            <Description project={project} active={info} theme={theme} />
         </div>
     )
 }
 
 const GameProject = ({ project, theme }) => {
+    const [info, setInfo] = useState(false)
+
+    useEffect(() => {
+        setInfo(false)
+
+    }, [project])
+
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} />
+            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
+            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
+            </div>
+            <Description project={project} active={info} theme={theme} />
         </div>
     )
 }
