@@ -55,7 +55,7 @@ const WebProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <iframe onLoad={() => {setLoading(false)}} style={{width: '65vw', height: '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
+            <iframe onLoad={() => {setLoading(false)}} style={{backgroundColor: 'white', width: '65vw', height: '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
 			<div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
                 <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
             </div>
