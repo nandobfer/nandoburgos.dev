@@ -15,14 +15,6 @@ export const useProjects = () => {
                 description_pt: 'Sistema da própria agência com múltiplas funcionalidades: controle, cadastro e configurações de funcionários e clientes; distribuição de tarefas (com atribuição de responsável, desenvolvedor, datas, briefings e recursividade); orçamento automático de solicitações publicitárias para os clientes; visualização e estatísticas do servidor de hospedagem e outros.',
             },
             {
-                name: 'my cheatsheet',
-                name_pt: 'colinhas',
-                url: 'https://nandoburgos.dev/cheatsheet',
-                technologies: [tech.react, tech.node],
-                description: 'A cheatsheet for myself, with easy inclusions and deletions, of my working languages and platforms',
-                description_pt: 'Uma tabela para uso próprio, com fácil inclusão e deleção de código / comandos das linguagens e plataformas que eu trabalho',
-            },
-            {
                 name: 'SBOP',
                 url: 'https://sistema.sbop.com.br:5001',
                 technologies: [tech.python, tech.javascript],
@@ -45,8 +37,8 @@ export const useProjects = () => {
                 description_pt: 'Sistema de cupons para uma sorveteria com diversas filiais, compartilhando cadastro de clientes mas quantidade de cupons exclusiva. Painel do cliente: É possível ver quantos cupons possui em cada loja, alterar dados pessoais. Painel do parceiro: É possível cadastrar novos clientes no sistema (ou apenas na sua loja, para clientes já cadastrados), pesquisar clientes por CPF e inserir ou remover cupons.',
             },
             {
-                name: 'G2 corretora',
-                name_pt: 'insurer G2',
+                name: 'insurer G2',
+                name_pt: 'G2 corretora',
                 url: 'https://sistema.g2corretora.com.br:5002/tabela',
                 technologies: [tech.python, tech.javascript, tech.mysql],
                 description: 'Developed organization and signup system for customers of an insurer, with a highly customizable table, customizable ordination and notifications.',
