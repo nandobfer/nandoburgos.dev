@@ -66,6 +66,7 @@ const WebProject = ({ project, theme }) => {
 
 const MobileProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setInfo(true)
@@ -75,8 +76,9 @@ const MobileProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <p>on development</p>
+            <p style={{alignSelf: 'center'}}>on development</p>
+            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
@@ -85,6 +87,7 @@ const MobileProject = ({ project, theme }) => {
 
 const RpaProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setInfo(true)
@@ -94,8 +97,9 @@ const RpaProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <p>on development</p>
+            <p style={{alignSelf: 'center'}}>on development</p>
+            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
@@ -104,6 +108,7 @@ const RpaProject = ({ project, theme }) => {
 
 const GameProject = ({ project, theme }) => {
     const [info, setInfo] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setInfo(true)
@@ -113,8 +118,9 @@ const GameProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <div className="loading-container" style={{width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <p>on development</p>
+            <p style={{alignSelf: 'center'}}>on development</p>
+            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
+                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
             </div>
             <Description project={project} active={info} theme={theme} />
         </div>
