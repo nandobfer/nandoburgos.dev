@@ -7,8 +7,7 @@ export const useProjects = () => {
     const projects = {
         web: [
             {
-                name: 'BOZ Agency',
-                name_pt: 'Agência BOZ',
+                name: 'BOZ',
                 url: 'https://app.agenciaboz.com.br',
                 technologies: [tech.react, tech.node],
                 description: 'Developed a system for our own agency with multiple functionalities: employees and customers control, register and configurations; tasks distribution (with planner, worker, dates, briefings and recursion assignments); automated advertising requests budgets for customers; statistics visualizations from host server and other.',
