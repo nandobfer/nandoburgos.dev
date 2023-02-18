@@ -1,11 +1,13 @@
 @import '/src/sass/colors';
 
 .Project-Component {
+    position: relative;
     flex: 0.75;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     .title {
         width: 100%;
@@ -19,6 +21,19 @@
                 width: 3.5vw;
             }
         }
+    }
+
+    .description {
+        position: absolute;
+        width: 25vw;
+        background-color: black;
+        right: -30vw;
+        height: 75%;
+        top: 7.5vw;
+        padding: 2vw;
+        text-align: center;
+        align-items: center;
+        transition: 1s;
     }
 
     .web-project {
