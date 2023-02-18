@@ -19,6 +19,7 @@ export const About = () => {
                     <h1>Contact</h1>
                     <p><span>Phone</span>: +55 41984556795</p>
                     <p><span>E-mail</span>: nandobfer@gmail.com</p>
+                    <p><span>Discord</span>: Burgos#5587</p>
                 </div>
                 <h1>Technologies</h1>
                 <p>Advanced programming in <span style={{color: COLORS.blue}}>Python</span> (Flask, CRUDs, RPAs)</p>
@@ -37,6 +38,7 @@ export const About = () => {
                     <h1>Contato</h1>
                     <p><span>Telefone</span>: +55 41984556795</p>
                     <p><span>E-mail</span>: nandobfer@gmail.com</p>
+                    <p><span>Discord</span>: Burgos#5587</p>
                 </div>
                 <h1>Tecnologias</h1>
                 <p>Programação avançada em <span style={{color: COLORS.blue}}>Python</span> (Flask, CRUDs, RPAs)</p>

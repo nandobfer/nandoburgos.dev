@@ -7,12 +7,13 @@
     background-color: black;
     padding-top: 10vh;
     align-items: center;
+    justify-content: center;
     
     .languages {
         flex-direction: column;
         text-align: justify;
-        margin-top: 7vw;
         width: 50%;
+        margin-top: -5vw;
         
         span {
             font-weight: bold;
@@ -30,6 +31,7 @@
 
         .languages {
             height: 68vh;
+            width: 80%;
             overflow-y: scroll;
             font-size: 3.5vw;
             padding: 0 5vw;
