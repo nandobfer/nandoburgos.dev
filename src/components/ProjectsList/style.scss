@@ -14,3 +14,17 @@
         border: none;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .ProjectsList-Component {
+        .project-button {
+            min-height: 7vw;
+            height: fit-content;
+            font-size: 3vw;
+            white-space: normal;
+            width: 25vw;
+            text-align: center;
+            padding: 2vw 0;
+        }
+    }
+}

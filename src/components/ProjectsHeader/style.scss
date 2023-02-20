@@ -12,3 +12,13 @@
         flex: 1;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .ProjectsHeader-Component {
+        height: 10vw;
+
+        .header-button {
+            font-size: 4vw;
+        }
+    }
+}

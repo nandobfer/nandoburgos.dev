@@ -45,3 +45,41 @@
 .ProjectInfo-Component {
 
 }
+@media only screen and (max-width: 600px) {
+    .Project-Component {
+        justify-content: flex-start;
+        padding-top: 2vw;
+
+        .title {
+            font-size: 4vw;
+            justify-content: space-between;
+            width: 100%;
+
+            svg {
+                height: 7vw;
+                width: auto;
+            }
+            .icons {
+                svg {
+                    height: 7vw;
+                    width: auto;
+                }
+            }
+        }
+
+        .description {
+            position: absolute;
+            width: 70vw;
+            background-color: black;
+            right: -70vw;
+            height: 80vw;
+            top: 60vw;
+            padding: 2vw;
+            font-size: 3vw;
+            text-align: center;
+            align-items: center;
+            transition: 1s;
+            overflow-y: scroll;
+        }
+    }
+}

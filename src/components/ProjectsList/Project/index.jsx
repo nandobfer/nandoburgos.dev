@@ -5,6 +5,7 @@ import './style.scss';
 import ReactLoading from 'react-loading';
 import { useEffect, useState } from "react";
 import { useLanguage } from "../../../hooks/useLanguage";
+import { useMediaQuery } from "react-responsive";
 
 const Title = ({ project, theme, onInfoClick }) => {
     const [hover, setHover] = useState(false)
@@ -34,9 +35,10 @@ const Title = ({ project, theme, onInfoClick }) => {
 
 const Description = ({ project, active, theme }) => {
     const language = useLanguage().value
+    const isMobile = useMediaQuery({maxWidth:600})
 
     return (
-        <div className="description" style={{right: active ? '4.7vw' : null, borderLeft: '0.3vw solid '+theme}}>
+        <div className="description" style={{right: active ? '1vw' : null, borderLeft: isMobile? null : '0.3vw solid '+theme, borderTop: isMobile? '0.3vw solid '+theme : null}}>
             <p>{language == 'portuguese' ? project?.description_pt ? project?.description_pt : project?.description : project?.description}</p>
         </div>
     )
@@ -45,6 +47,7 @@ const Description = ({ project, active, theme }) => {
 const WebProject = ({ project, theme }) => {
     const [loading, setLoading] = useState(true)
     const [info, setInfo] = useState(true)
+    const isMobile = useMediaQuery({maxWidth:600})
 
     useEffect(() => {
         setLoading(true)
@@ -55,8 +58,8 @@ const WebProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <iframe onLoad={() => {setLoading(false)}} style={{backgroundColor: 'white', width: '65vw', height: '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
-			<div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
+            <iframe onLoad={() => {setLoading(false)}} style={{backgroundColor: 'white', width: '65vw', height: isMobile ? '120vw' :  '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
+			<div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: isMobile ? '120vw' :  '30vw', justifyContent: 'center'}}>
                 <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
             </div>
             <Description project={project} active={info} theme={theme} />
