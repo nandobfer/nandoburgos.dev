@@ -10,6 +10,7 @@ import { useMediaQuery } from "react-responsive";
 const Title = ({ project, theme, onInfoClick }) => {
     const [hover, setHover] = useState(false)
     const language = useLanguage().value
+    const isMobile = useMediaQuery({maxWidth:600})
 
     const info_style = {
         color: theme, 
@@ -27,7 +28,7 @@ const Title = ({ project, theme, onInfoClick }) => {
                     return technology.icon
                 })}
             </div>
-            <h1>{language == 'portuguese' ? project?.name_pt ? project?.name_pt : project?.name : project?.name}</h1>
+            <h1>{isMobile ? null : language == 'portuguese' ? project?.name_pt ? project?.name_pt : project?.name : project?.name}</h1>
             <InfoIcon onClick={() => onInfoClick()} sx={[info_style, hover ? {width: '4.5vw', height: '4.5vw'} : null]} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} />
         </div>
     )

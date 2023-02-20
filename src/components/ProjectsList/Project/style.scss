@@ -48,12 +48,12 @@
 @media only screen and (max-width: 600px) {
     .Project-Component {
         justify-content: flex-start;
-        padding-top: 2vw;
 
         .title {
             font-size: 4vw;
             justify-content: space-between;
             width: 100%;
+            margin: 2vw 0;
 
             svg {
                 height: 7vw;
