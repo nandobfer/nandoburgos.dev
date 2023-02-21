@@ -59,7 +59,7 @@ const ProjectContainer = ({ project, theme, children, type, loading }) => {
         <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
         {children}
         <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: isMobile ? '128vw' :  '30vw', justifyContent: 'center'}}>
-            <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
+            <ReactLoading style={{fill: theme, width: isMobile ? '20vw' : '5vw', marginBottom: isMobile ? '100%' : null}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
         </div>
         <Description project={project} active={info} theme={theme} />
     </div>
