@@ -66,6 +66,12 @@ const ProjectContainer = ({ project, theme, children, type, loading }) => {
     )
 }
 
+const OnDevelopment = () => {
+    return (
+        <p style={{alignSelf: 'center'}}>on development</p>
+    )
+}
+
 const WebProject = ({ project, theme }) => {
     const [loading, setLoading] = useState(true)
     const [info, setInfo] = useState(true)
@@ -97,7 +103,7 @@ const MobileProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
-
+                <OnDevelopment />
             </ProjectContainer>
         </div>
     )
@@ -115,7 +121,7 @@ const RpaProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
-                
+                <OnDevelopment />
             </ProjectContainer>
         </div>
     )
@@ -133,7 +139,7 @@ const GameProject = ({ project, theme }) => {
     return (
         <div className="web-project">
             <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
-                
+                <OnDevelopment />
             </ProjectContainer>
         </div>
     )
