@@ -24,7 +24,7 @@ export const Header = () => {
                 <HomeIcon 
                     onMouseEnter={() => setHomeIconColor(COLORS.blue)} 
                     onMouseLeave={() => setHomeIconColor('white')} 
-                    sx={{ color: homeIconColor, fontSize: 70 }}
+                    sx={{ color: homeIconColor, fontSize: 50 }}
                     onClick={() => navigate('/')} />
             </div>
             <div className="header-buttons">
@@ -37,7 +37,7 @@ export const Header = () => {
                 <GitHubIcon 
                     onMouseEnter={() => setGithubIconColor(COLORS.blue)} 
                     onMouseLeave={() => setGithubIconColor('white')} 
-                    sx={{ color: githubIconColor, fontSize: 70 }} 
+                    sx={{ color: githubIconColor, fontSize: 50 }} 
                     onClick={() => openURL('https://github.com/nandobfer')} />
             </div>
         </div>
