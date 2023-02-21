@@ -72,8 +72,8 @@ export const useProjects = () => {
             {
                 name: 'manservmed',
                 technologies: [tech.python, tech.mysql],
-                description: 'Developed part of automated submission and approval of medical certifications. I programmed the consumption of the webservice after receiving the certificate data from an OCR, crossing data and deciding whether it was paid or not, depending on the information on each certificate and employee.',
-                description_pt: 'Desenvolvida parte de sistema de automação de submissão e abono de atestados médicos. Programei o consumo do webservice após receber de um OCR os dados do atestado, cruzando dados e decidindo se era abonado ou não, dependendo das informações.',
+                description: 'Developed part of automated submission and approval of medical certifications. I programmed the consumption of the webservice after receiving the certificate data from an OCR, crossing data and deciding whether it should be paid or not, depending on the information on each certificate and employee.',
+                description_pt: 'Desenvolvida parte de sistema de automação de submissão e abono de atestados médicos. Programei o consumo do webservice após receber de um OCR os dados do atestado, cruzando dados e decidindo se deve ser abonado ou não, dependendo das informações.',
             },
             {
                 name: 'agesbec gate control',
