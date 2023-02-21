@@ -131,8 +131,8 @@ export const useProjects = () => {
                 description_pt: 'servidor de tibia feito para mesclar conceitos de world of warcraft e outros rpgs nele',
             },
             {
-                name: 'memory game',
-                name: 'jogo da memória',
+                name: 'Neurokids memory game',
+                name_pt: 'jogo da memória Neurokids',
                 technologies: [tech.reactnative],
                 description: 'Memory game for a toy store. There are theme customizations for the game and will have online mode.',
                 description_pt: 'Jogo da memória para empresa de brinquedos infantis. Há customização de temas para o jogo e haverá modalidade online.',
