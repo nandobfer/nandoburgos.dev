@@ -45,6 +45,27 @@ const Description = ({ project, active, theme }) => {
     )
 }
 
+const ProjectContainer = ({ project, theme, children, type, loading }) => {
+    const [info, setInfo] = useState(type == 'web' ? true : false)
+    const isMobile = useMediaQuery({maxWidth:600})
+
+    useEffect(() => {
+        setInfo(type == 'web' ? false : true)
+
+    }, [project])
+
+    return (
+    <div className="web-project">
+        <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
+        {children}
+        <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: isMobile ? '128vw' :  '30vw', justifyContent: 'center'}}>
+            <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
+        </div>
+        <Description project={project} active={info} theme={theme} />
+    </div>
+    )
+}
+
 const WebProject = ({ project, theme }) => {
     const [loading, setLoading] = useState(true)
     const [info, setInfo] = useState(true)
@@ -52,18 +73,14 @@ const WebProject = ({ project, theme }) => {
 
     useEffect(() => {
         setLoading(true)
-        setInfo(false)
 
     }, [project])
 
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <iframe onLoad={() => {setLoading(false)}} style={{backgroundColor: 'white', width: '65vw', height: isMobile ? '128vw' :  '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameborder="0"></iframe>
-			<div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: isMobile ? '128vw' :  '30vw', justifyContent: 'center'}}>
-                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
-            </div>
-            <Description project={project} active={info} theme={theme} />
+            <ProjectContainer project={project} theme={theme} loading={loading} type='web'>
+                <iframe onLoad={() => {setLoading(false)}} style={{backgroundColor: 'white', width: '65vw', height: isMobile ? '128vw' :  '30vw', display: loading ? 'none' : 'block'}} src={project?.url} frameBorder="0"></iframe>
+            </ProjectContainer>
         </div>
     )
 }
@@ -79,12 +96,9 @@ const MobileProject = ({ project, theme }) => {
 
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <p style={{alignSelf: 'center'}}>on development</p>
-            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
-            </div>
-            <Description project={project} active={info} theme={theme} />
+            <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
+
+            </ProjectContainer>
         </div>
     )
 }
@@ -100,12 +114,9 @@ const RpaProject = ({ project, theme }) => {
 
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <p style={{alignSelf: 'center'}}>on development</p>
-            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
-            </div>
-            <Description project={project} active={info} theme={theme} />
+            <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
+                
+            </ProjectContainer>
         </div>
     )
 }
@@ -121,12 +132,9 @@ const GameProject = ({ project, theme }) => {
 
     return (
         <div className="web-project">
-            <Title project={project} theme={theme} onInfoClick={() => setInfo(!info)} />
-            <p style={{alignSelf: 'center'}}>on development</p>
-            <div className="loading-container" style={{display: loading ? 'flex' : 'none', width: '65vw', height: '30vw', justifyContent: 'center'}}>
-                <ReactLoading style={{fill: theme, width: '5vw'}} className='loading' type={'cylon'} color={theme} height={'65vw'} width={'30vw'} />
-            </div>
-            <Description project={project} active={info} theme={theme} />
+            <ProjectContainer project={project} theme={theme} loading={loading} type='mobile'>
+                
+            </ProjectContainer>
         </div>
     )
 }
