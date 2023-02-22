@@ -1,12 +1,14 @@
 @font-face {
 	font-family: Fira Code;
 	src: url("../public/fonts/FiraCode-Regular.ttf") ;
+    font-display: swap;
 }
 
 @font-face {
 	font-family: Fira Code;
 	src: url("../public/fonts/FiraCode-Bold.ttf") ;
     font-weight: bold;
+    font-display: swap;
 }
 
 body {
