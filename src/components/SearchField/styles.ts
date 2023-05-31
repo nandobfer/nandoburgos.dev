@@ -12,10 +12,13 @@ const styles: Styles = {
         width: "100%",
         backgroundColor: colors.backgroundDark,
         padding: "0.5vw",
+        // outline: `1px solid ${colors.border}`,
     },
+
     autocomplete: {
         width: "100%",
     },
+
     listbox: {
         width: "100vw",
         color: colors.secondary,
