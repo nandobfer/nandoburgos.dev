@@ -9,6 +9,7 @@ import { Code } from "./pages/Code"
 import { Header } from "./components/Header"
 import { CurrentLanguageProvider } from "./contexts/currentLanguageContext"
 import { LanguagesProvider } from "./contexts/languagesContext"
+import { SheetsProvider } from "./contexts/sheetsContext"
 
 const App = () => {
     const muiTheme = useMuiTheme()
@@ -16,16 +17,18 @@ const App = () => {
         <ThemeProvider theme={muiTheme}>
             <SnackbarProvider>
                 <LanguagesProvider>
-                    <CurrentLanguageProvider>
-                        <BrowserRouter>
-                            <Snackbar />
-                            <Header />
-                            <Routes>
-                                <Route index element={<Home />} />
-                                <Route path="/code" element={<Code />} />
-                            </Routes>
-                        </BrowserRouter>
-                    </CurrentLanguageProvider>
+                    <SheetsProvider>
+                        <CurrentLanguageProvider>
+                            <BrowserRouter>
+                                <Snackbar />
+                                <Header />
+                                <Routes>
+                                    <Route index element={<Home />} />
+                                    <Route path="/code" element={<Code />} />
+                                </Routes>
+                            </BrowserRouter>
+                        </CurrentLanguageProvider>
+                    </SheetsProvider>
                 </LanguagesProvider>
             </SnackbarProvider>
         </ThemeProvider>

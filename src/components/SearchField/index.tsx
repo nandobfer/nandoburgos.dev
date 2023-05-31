@@ -1,25 +1,39 @@
 import React, { useState, useEffect } from "react"
 import { Autocomplete, TextField, MenuItem } from "@mui/material"
-import { Language } from "../../definitions/languages"
+import { Language, Sheet } from "../../definitions/languages"
 import styles from "./styles"
 import { useLanguages } from "../../hooks/useLanguages"
 import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
+import { useSheets } from "../../hooks/useSheets"
 
 interface SearchFieldProps {
     values?: { search: string }
     handleChange?: React.ChangeEventHandler
 }
 
+const instanceOfLanguage = (object: any): object is Language => {
+    return true
+}
+
 export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }) => {
     const { languages } = useLanguages()
+    const { sheets } = useSheets()
     const { setCurrentLanguage } = useCurrentLanguage()
 
-    const [options, setOptions] = useState<Language[]>([])
+    const [options, setOptions] = useState<(Language | Sheet)[]>([])
     const [inputValue, setInputValue] = useState("")
-    const [value, setValue] = useState<Language | null>(null)
+    const [value, setValue] = useState<Language | Sheet | null>(null)
 
     useEffect(() => {
-        setOptions(languages.filter((language) => language.title.includes(inputValue)))
+        setOptions([
+            ...languages.filter((language) => language.title.includes(inputValue)),
+            ...sheets.filter(
+                (sheet) =>
+                    sheet.title.includes(inputValue) ||
+                    sheet.keywords.includes(inputValue) ||
+                    sheet.code.includes(inputValue)
+            ),
+        ])
     }, [inputValue, value])
 
     return (
@@ -36,11 +50,11 @@ export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }
                 filterSelectedOptions
                 value={value}
                 noOptionsText="no results"
-                onChange={(event: any, newValue: Language | null) => {
+                onChange={(event: any, newValue: Language | Sheet | null) => {
                     console.log(newValue)
                     setValue(newValue)
 
-                    if (newValue) setCurrentLanguage(newValue)
+                    if (newValue && instanceOfLanguage(newValue)) setCurrentLanguage(newValue)
                 }}
                 onInputChange={(event, newInputValue) => {
                     setInputValue(newInputValue)
