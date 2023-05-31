@@ -7,6 +7,8 @@ interface Styles {
     sidebar: React.CSSProperties
     maincontainer: React.CSSProperties
     menu: SxProps
+    sheet: SxProps
+    title: React.CSSProperties
 }
 
 const styles: Styles = {
@@ -36,12 +38,24 @@ const styles: Styles = {
         flexDirection: "column",
         height: "100%",
         outline: `1px solid ${colors.border}`,
+        gap: "1vw",
+        // padding: "2vw",
     },
 
     menu: {
         color: colors.secondary,
         gap: "0.5vw",
         outline: `1px solid ${colors.border}`,
+    },
+
+    sheet: {
+        display: "flex",
+        flexDirection: "column",
+        padding: "1vw",
+    },
+
+    title: {
+        color: colors.primary,
     },
 }
 export default styles

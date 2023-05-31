@@ -20,8 +20,8 @@ export const useMuiTheme = () => {
                 main: colors.secondary,
             },
             text: {
-                primary: colors.primary,
-                // secondary: colors.primary,
+                primary: colors.text.primary,
+                // secondary: colors.text.secondary,
                 // disabled: colors.primary,
             },
             // success: {

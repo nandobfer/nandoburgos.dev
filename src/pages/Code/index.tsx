@@ -11,7 +11,7 @@ import { Content } from "./Content"
 interface CodeProps {}
 
 export const Code: React.FC<CodeProps> = ({}) => {
-    const languages = useLanguages()
+    const { languages } = useLanguages()
     const { currentLanguage, setCurrentLanguage } = useCurrentLanguage()
 
     return (

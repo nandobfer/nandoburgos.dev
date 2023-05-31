@@ -5,6 +5,10 @@ export const colors = {
     background: "#1F1F1F",
     backgroundDark: "#181818",
     border: "#2A2A2A",
+
+    text: {
+        primary: "#8CDCFE",
+    },
 }
 
 export default colors

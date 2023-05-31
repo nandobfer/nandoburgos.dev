@@ -17,7 +17,7 @@ const CurrentLanguageContext = createContext<CurrentLanguageContextValue>({} as 
 export default CurrentLanguageContext
 
 export const CurrentLanguageProvider: React.FC<CurrentLanguageProviderProps> = ({ children }) => {
-    const languages = useLanguages()
+    const { languages } = useLanguages()
     const [value, setValue] = useState<Language>(languages[0])
 
     return <CurrentLanguageContext.Provider value={{ value, setValue }}>{children}</CurrentLanguageContext.Provider>

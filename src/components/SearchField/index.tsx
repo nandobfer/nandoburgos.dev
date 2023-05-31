@@ -11,7 +11,7 @@ interface SearchFieldProps {
 }
 
 export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }) => {
-    const languages = useLanguages()
+    const { languages } = useLanguages()
     const { setCurrentLanguage } = useCurrentLanguage()
 
     const [options, setOptions] = useState<Language[]>([])

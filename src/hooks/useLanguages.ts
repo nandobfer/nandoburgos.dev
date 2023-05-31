@@ -1,33 +1,10 @@
-import { Language } from "../definitions/languages"
+import { useContext } from "react"
+import LanguagesContext from "../contexts/languagesContext"
 
 export const useLanguages = () => {
-    const languages: Language[] = [
-        {
-            id: 1,
-            title: "python",
-            color: "",
-        },
-        {
-            id: 2,
-            title: "javascript",
-            color: "",
-        },
-        {
-            id: 3,
-            title: "git",
-            color: "",
-        },
-        {
-            id: 4,
-            title: "powershell",
-            color: "",
-        },
-        {
-            id: 5,
-            title: "bash",
-            color: "",
-        },
-    ]
+    const languagesContext = useContext(LanguagesContext)
+    const languages = languagesContext.value
+    const setLanguages = languagesContext.setValue
 
-    return languages
+    return { languages, setLanguages }
 }
