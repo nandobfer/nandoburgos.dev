@@ -15,13 +15,13 @@ export const useHeaderMenus = () => {
             id: 1,
             icon: <HomeIcon />,
             location: "/",
-            title: "Home",
+            title: "home",
         },
         {
             id: 2,
             icon: <TerminalIcon />,
             location: "/code",
-            title: "Code",
+            title: "code",
         },
     ]
 
