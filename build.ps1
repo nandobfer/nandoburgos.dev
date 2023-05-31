@@ -1,3 +1,8 @@
+$user = "nandoburgos"
+$domain = "public_html"
+$path = "/home/$user/$domain"
+
 yarn build
-Write-Output 'Uploading files to oracle'
-scp -r build/* nandoburgos.dev:/var/www/nandoburgos.dev/
+Write-Output 'Uploading build to server'
+scp -r -P 22022 build/* agenciaboz:$path
+ssh -p 22022 agenciaboz "chown -R $user`:$user $path/*"
