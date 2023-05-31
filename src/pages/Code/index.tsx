@@ -36,7 +36,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
                     })}
                 </div>
                 <div style={styles.maincontainer}>
-                    <Content language={currentLanguage} />
+                    <Content />
                 </div>
             </div>
         </div>
