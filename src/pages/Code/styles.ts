@@ -9,6 +9,7 @@ interface Styles {
     menu: SxProps
     sheet: SxProps
     title: React.CSSProperties
+    skeleton: SxProps
 }
 
 const styles: Styles = {
@@ -25,7 +26,7 @@ const styles: Styles = {
     },
 
     sidebar: {
-        flex: 0.25,
+        flex: 0.2,
         flexShrink: 0,
         flexDirection: "column",
         height: "100%",
@@ -33,7 +34,7 @@ const styles: Styles = {
     },
 
     maincontainer: {
-        flex: 0.75,
+        flex: 0.8,
         flexShrink: 0,
         flexDirection: "column",
         height: "100%",
@@ -56,6 +57,12 @@ const styles: Styles = {
 
     title: {
         color: colors.primary,
+    },
+
+    skeleton: {
+        width: "100%",
+        height: "4.5vw",
+        margin: "0 0.5vw",
     },
 }
 export default styles

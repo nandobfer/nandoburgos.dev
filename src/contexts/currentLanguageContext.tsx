@@ -26,5 +26,9 @@ export const CurrentLanguageProvider: React.FC<CurrentLanguageProviderProps> = (
         if (value.sheets) setCurrentSheets(value.sheets)
     }, [value])
 
+    useEffect(() => {
+        setValue(languages.filter((language) => language.id == value.id)[0])
+    }, [languages])
+
     return <CurrentLanguageContext.Provider value={{ value, setValue }}>{children}</CurrentLanguageContext.Provider>
 }
