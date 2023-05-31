@@ -5,6 +5,8 @@ import { Snackbar } from "burgos-snackbar"
 import { Home } from "./pages/Home"
 import { useMuiTheme } from "./hooks/useMuiTheme"
 import { ThemeProvider } from "@mui/material"
+import { Code } from "./pages/Code"
+import { Header } from "./components/Header"
 
 const App = () => {
     const muiTheme = useMuiTheme()
@@ -12,8 +14,10 @@ const App = () => {
         <ThemeProvider theme={muiTheme}>
             <BrowserRouter>
                 <Snackbar />
+                <Header />
                 <Routes>
                     <Route index element={<Home />} />
+                    <Route path="/code" element={<Code />} />
                 </Routes>
             </BrowserRouter>
         </ThemeProvider>
