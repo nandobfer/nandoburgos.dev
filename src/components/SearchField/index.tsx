@@ -27,7 +27,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }
 
     const [options, setOptions] = useState<(Language | Sheet)[]>([])
     const [inputValue, setInputValue] = useState("")
-    const [value, setValue] = useState<Language | Sheet | null>(null)
+    const [value, setValue] = useState("")
 
     useEffect(() => {
         setOptions([
@@ -39,33 +39,20 @@ export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }
                     sheet.code.includes(inputValue)
             ),
         ])
+        setCurrentSheets(
+            sheets.filter(
+                (sheet) => sheet.title.includes(value) || sheet.keywords.includes(value) || sheet.code.includes(value)
+            )
+        )
     }, [inputValue, value])
 
     return (
         <div className="SearchField-Component" style={styles.body}>
-            <Autocomplete
-                getOptionLabel={(option) => option.title}
-                fullWidth
-                filterOptions={(x) => x}
-                isOptionEqualToValue={(option, value) => option.id == value.id}
-                options={options}
-                ListboxProps={{ sx: styles.listbox }}
-                autoComplete
-                includeInputInList
-                filterSelectedOptions
+            <TextField
                 value={value}
-                noOptionsText="no results"
-                onChange={(event: any, newValue: Language | Sheet | null) => {
-                    console.log(newValue)
-                    setValue(newValue)
-
-                    if (newValue && instanceOfLanguage(newValue)) setCurrentLanguage(newValue)
-                    if (newValue && instanceOfSheet(newValue)) setCurrentSheets([newValue])
-                }}
-                onInputChange={(event, newInputValue) => {
-                    setInputValue(newInputValue)
-                }}
-                renderInput={(params) => <TextField {...params} label="search" fullWidth />}
+                onChange={(event) => setValue(event.target.value)}
+                label="search"
+                placeholder="code or keyword"
             />
         </div>
     )
