@@ -3,6 +3,7 @@ import { Autocomplete, TextField, MenuItem } from "@mui/material"
 import { Language } from "../../definitions/languages"
 import styles from "./styles"
 import { useLanguages } from "../../hooks/useLanguages"
+import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
 
 interface SearchFieldProps {
     values?: { search: string }
@@ -11,6 +12,7 @@ interface SearchFieldProps {
 
 export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }) => {
     const languages = useLanguages()
+    const { setCurrentLanguage } = useCurrentLanguage()
 
     const [options, setOptions] = useState<Language[]>([])
     const [inputValue, setInputValue] = useState("")
@@ -37,6 +39,8 @@ export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }
                 onChange={(event: any, newValue: Language | null) => {
                     console.log(newValue)
                     setValue(newValue)
+
+                    if (newValue) setCurrentLanguage(newValue)
                 }}
                 onInputChange={(event, newInputValue) => {
                     setInputValue(newInputValue)
