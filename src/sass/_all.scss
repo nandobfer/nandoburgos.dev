@@ -1,0 +1,107 @@
+.MuiList-root {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // font-family: Poppins;
+}
+
+.MuiTextField-root {
+    width: 100%;
+}
+
+.slide-routes {
+    width: 100%;
+    overflow-y: auto!important;
+    height: 100%;
+
+    .item {
+        width: 100%;
+        height: 100%;
+
+    }
+}
+
+.slide-up {
+    transform: translateY(-100vh);
+}
+  
+.slide-down {
+    transform: translateY(100vh);
+}
+
+form {
+    display: flex;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+section {
+    display: contents;
+}
+
+div {
+    display: flex;
+}
+
+img {
+    object-fit: contain;
+}
+
+::placeholder {
+    // color: darken($background-color, 20);
+    opacity: 1;
+}
+  
+/* width */
+::-webkit-scrollbar {
+    // width: 5px;
+    // height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+/* box-shadow: inset 0 0 5px grey; */
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    // background: $primary-color;
+    border-radius: 10px;
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    // -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
+}
+
+@media (orientation: landscape) {
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+}
