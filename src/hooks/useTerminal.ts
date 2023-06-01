@@ -3,12 +3,17 @@ import TerminalContext from "../contexts/terminalContext"
 import { useNavigate } from "react-router-dom"
 import { useAuthentication } from "./useAuthentication"
 import { useSnackbar } from "burgos-snackbar"
+import { useCurrentLanguage } from "./useCurrentLanguage"
+import { useLanguages } from "./useLanguages"
 
 export const useTerminal = () => {
     const { setAuthentication } = useAuthentication()
     const { snackbar } = useSnackbar()
+    const { setCurrentLanguage } = useCurrentLanguage()
+    const { languages } = useLanguages()
     const terminal = useContext(TerminalContext)
     const navigate = useNavigate()
+
     const [login, setLogin] = useState(false)
 
     const checkFocus = () => {
@@ -43,6 +48,18 @@ export const useTerminal = () => {
         }
     }
 
+    const handleNavigate = (argument: string) => {
+        const splited = argument.split("/")
+        if (splited.length > 1) {
+            const [path, language] = splited
+
+            navigate(path)
+            setCurrentLanguage(languages.filter((item) => item.name == language)[0])
+        } else {
+            navigate(argument)
+        }
+    }
+
     const execute = () => {
         if (!login) {
             console.log(terminal.shell)
@@ -58,7 +75,7 @@ export const useTerminal = () => {
                     termLogout()
                     return
                 } else if (command == "cd") {
-                    navigate('/')
+                    navigate("/")
                 } else {
                     console.log(terminal.shell)
                 }
@@ -66,7 +83,7 @@ export const useTerminal = () => {
                 const command = splited[0]
                 const argument = splited[1]
 
-                if (command == "cd") navigate(argument)
+                if (command == "cd") handleNavigate(argument)
             }
 
             terminal.setModal(false)
