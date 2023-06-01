@@ -5,12 +5,16 @@ import { useAuthentication } from "./useAuthentication"
 import { useSnackbar } from "burgos-snackbar"
 import { useCurrentLanguage } from "./useCurrentLanguage"
 import { useLanguages } from "./useLanguages"
+import { useCurrentSheets } from "./useCurrentSheets"
+import { useSheets } from "./useSheets"
 
 export const useTerminal = () => {
     const { setAuthentication } = useAuthentication()
     const { snackbar } = useSnackbar()
     const { setCurrentLanguage } = useCurrentLanguage()
+    const { setCurrentSheets } = useCurrentSheets()
     const { languages } = useLanguages()
+    const { sheets } = useSheets()
     const terminal = useContext(TerminalContext)
     const navigate = useNavigate()
 
@@ -50,11 +54,20 @@ export const useTerminal = () => {
 
     const handleNavigate = (argument: string) => {
         const splited = argument.split("/")
-        if (splited.length > 1) {
+        if (splited.length == 2) {
             const [path, language] = splited
 
             navigate(path)
             setCurrentLanguage(languages.filter((item) => item.name == language)[0])
+        } else if (splited.length == 3) {
+            const [path, language, search] = splited
+            navigate(path)
+            setCurrentLanguage(languages.filter((item) => item.name == language)[0])
+            setCurrentSheets(
+                sheets.filter(
+                    (sheet) => sheet.title.includes(search) || sheet.keywords.includes(search) || sheet.code.includes(search)
+                )
+            )
         } else {
             navigate(argument)
         }
