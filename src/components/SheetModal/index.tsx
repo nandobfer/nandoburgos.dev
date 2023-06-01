@@ -21,6 +21,7 @@ import SendIcon from "@mui/icons-material/Send"
 import SaveIcon from "@mui/icons-material/Save"
 import { useRefresh } from "../../hooks/useRefresh"
 import { useSnackbar } from "burgos-snackbar"
+import { useAuthentication } from "../../hooks/useAuthentication"
 
 interface SheetModalProps {}
 
@@ -35,6 +36,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     const { open, setOpen, sheet } = useSheetModal()
     const { languages } = useLanguages()
     const { snackbar } = useSnackbar()
+    const { authentication } = useAuthentication()
     const refresh = useRefresh()
     const api = useApi()
 
@@ -55,6 +57,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     }
 
     const handleSubmit = (values: FormValues) => {
+        if (!authentication) return
         if (loading) return
         if (Object.entries(values).filter((obj) => !obj[1]).length) return
 
@@ -127,7 +130,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                                 onChange={handleChange}
                                 placeholder="word, word, word"
                             />
-                            <Button type="submit" variant="contained" sx={{ gap: "0.5vw" }}>
+                            <Button type="submit" variant="contained" sx={{ gap: "0.5vw" }} disabled={!authentication}>
                                 {loading ? (
                                     <CircularProgress size={"1.5rem"} color="secondary" />
                                 ) : (

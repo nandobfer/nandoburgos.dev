@@ -44,6 +44,7 @@ export const Terminal: React.FC<TerminalProps> = ({}) => {
                 onChange={(event) => terminal.setShell(event.target.value)}
                 inputProps={{ ref: ref }}
                 fullWidth
+                type={terminal.inputType}
                 sx={styles.textfield}
                 InputProps={{ startAdornment: <p style={{ marginRight: "0.5vw" }}>{">"}</p> }}
             />

@@ -7,6 +7,8 @@ interface TerminalContextValue {
     shell: string
     setShell: (shell: string) => void
     searchFieldRef: React.RefObject<HTMLInputElement>
+    inputType: string
+    setInputType: (type: string) => void
 }
 
 interface TerminalProviderProps {
@@ -20,10 +22,11 @@ export default TerminalContext
 export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) => {
     const [modal, setModal] = useState(false)
     const [shell, setShell] = useState("")
+    const [inputType, setInputType] = useState("text")
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
     return (
-        <TerminalContext.Provider value={{ modal, setModal, shell, setShell, searchFieldRef }}>
+        <TerminalContext.Provider value={{ modal, setModal, shell, setShell, searchFieldRef, inputType, setInputType }}>
             {children}
         </TerminalContext.Provider>
     )
