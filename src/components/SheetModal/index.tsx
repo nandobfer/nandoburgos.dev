@@ -20,6 +20,7 @@ import { useSheets } from "../../hooks/useSheets"
 import SendIcon from "@mui/icons-material/Send"
 import SaveIcon from "@mui/icons-material/Save"
 import { useRefresh } from "../../hooks/useRefresh"
+import { useSnackbar } from "burgos-snackbar"
 
 interface SheetModalProps {}
 
@@ -32,8 +33,9 @@ interface FormValues {
 
 export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     const { open, setOpen, sheet } = useSheetModal()
-    const refresh = useRefresh()
     const { languages } = useLanguages()
+    const { snackbar } = useSnackbar()
+    const refresh = useRefresh()
     const api = useApi()
 
     const [loading, setLoading] = useState(false)
@@ -63,6 +65,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                 data: values,
                 callback: (response: { data: Sheet }) => {
                     refresh()
+                    snackbar({ severity: "success", text: "sheet updated" })
                 },
                 finallyCallback: () => handleClose(),
             })
@@ -71,6 +74,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                 data: values,
                 callback: (response: { data: Sheet }) => {
                     refresh()
+                    snackbar({ severity: "success", text: "new sheet added" })
                 },
                 finallyCallback: () => handleClose(),
             })
