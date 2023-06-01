@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, RefObject } from "react"
 import { Autocomplete, TextField, MenuItem } from "@mui/material"
 import { Language, Sheet } from "../../definitions/languages"
 import styles from "./styles"
@@ -8,8 +8,7 @@ import { useSheets } from "../../hooks/useSheets"
 import { useCurrentSheets } from "../../hooks/useCurrentSheets"
 
 interface SearchFieldProps {
-    values?: { search: string }
-    handleChange?: React.ChangeEventHandler
+    innerRef?: RefObject<HTMLInputElement>
 }
 
 const instanceOfLanguage = (object: any): object is Language => {
@@ -19,7 +18,7 @@ const instanceOfSheet = (object: any): object is Sheet => {
     return true
 }
 
-export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }) => {
+export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
     const { languages } = useLanguages()
     const { sheets } = useSheets()
     const { setCurrentLanguage } = useCurrentLanguage()
@@ -53,6 +52,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({ values, handleChange }
                 onChange={(event) => setValue(event.target.value)}
                 label="search"
                 placeholder="code or keyword"
+                inputProps={{ ref: innerRef }}
             />
         </div>
     )
