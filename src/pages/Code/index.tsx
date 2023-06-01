@@ -62,7 +62,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
                     searchFieldRef.current?.blur()
                 } else if (event.key === "Enter") {
                     console.log(currentSheets)
-                    if (currentSheets.length == 1) openSheetModal(currentSheets[0])
+                    if (currentSheets.length > 0) openSheetModal(currentSheets[0])
                 } else if (event.key === "ArrowDown") {
                     navigateLanguage(1)
                 } else if (event.key === "ArrowUp") {
