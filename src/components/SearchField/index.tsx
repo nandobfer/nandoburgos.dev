@@ -24,7 +24,7 @@ const instanceOfSheet = (object: any): object is Sheet => {
 export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
     const { languages } = useLanguages()
     const { sheets } = useSheets()
-    const { setCurrentLanguage } = useCurrentLanguage()
+    const { currentLanguage, setCurrentLanguage } = useCurrentLanguage()
     const { setCurrentSheets } = useCurrentSheets()
     const { openSheetModal } = useSheetModal()
 
@@ -33,7 +33,9 @@ export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
     useEffect(() => {
         setCurrentSheets(
             sheets.filter(
-                (sheet) => sheet.title.includes(value) || sheet.keywords.includes(value) || sheet.code.includes(value)
+                (sheet) =>
+                    sheet.language.id == currentLanguage.id &&
+                    (sheet.title.includes(value) || sheet.keywords.includes(value) || sheet.code.includes(value))
             )
         )
     }, [value])

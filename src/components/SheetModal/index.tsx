@@ -19,6 +19,7 @@ import { useApi } from "../../hooks/useApi"
 import { useSheets } from "../../hooks/useSheets"
 import SendIcon from "@mui/icons-material/Send"
 import SaveIcon from "@mui/icons-material/Save"
+import { useRefresh } from "../../hooks/useRefresh"
 
 interface SheetModalProps {}
 
@@ -31,7 +32,7 @@ interface FormValues {
 
 export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     const { open, setOpen, sheet } = useSheetModal()
-    const { refresh } = useSheets()
+    const refresh = useRefresh()
     const { languages } = useLanguages()
     const api = useApi()
 

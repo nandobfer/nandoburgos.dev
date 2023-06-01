@@ -20,6 +20,7 @@ const styles: Styles = {
         flexDirection: "column",
         width: "100vw",
         height: "100vh",
+        overflowY: "hidden",
     },
 
     wrapper: {
@@ -28,7 +29,7 @@ const styles: Styles = {
     },
 
     sidebar: {
-        flex: 0.2,
+        width: "20%",
         flexShrink: 0,
         flexDirection: "column",
         height: "100%",
@@ -36,13 +37,14 @@ const styles: Styles = {
     },
 
     maincontainer: {
-        flex: 0.8,
+        width: "80%",
         flexShrink: 0,
         flexDirection: "column",
-        height: "100%",
+        height: "95%",
         outline: `1px solid ${colors.border}`,
         gap: "1vw",
         padding: "0.5vw",
+        overflowY: "auto",
     },
 
     menu: {

@@ -7,12 +7,16 @@ import colors from "../../colors"
 import { Language } from "../../definitions/languages"
 import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
 import { Content } from "./Content"
+import { useCurrentSheets } from "../../hooks/useCurrentSheets"
+import { useSheets } from "../../hooks/useSheets"
 
 interface CodeProps {}
 
 export const Code: React.FC<CodeProps> = ({}) => {
     const { languages } = useLanguages()
     const { currentLanguage, setCurrentLanguage } = useCurrentLanguage()
+    const { sheets } = useSheets()
+    const { setCurrentSheets } = useCurrentSheets()
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
@@ -47,7 +51,14 @@ export const Code: React.FC<CodeProps> = ({}) => {
                         }
 
                         return (
-                            <MenuItem sx={menuStyle} key={language.id} onClick={() => setCurrentLanguage(language)}>
+                            <MenuItem
+                                sx={menuStyle}
+                                key={language.id}
+                                onClick={() => {
+                                    setCurrentLanguage(language)
+                                    setCurrentSheets(sheets.filter((sheet) => sheet.language.id == language.id))
+                                }}
+                            >
                                 {language.name}
                             </MenuItem>
                         )
