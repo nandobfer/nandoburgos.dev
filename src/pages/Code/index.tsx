@@ -20,6 +20,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const { sheets } = useSheets()
     const { currentSheets, setCurrentSheets } = useCurrentSheets()
     const { openSheetModal } = useSheetModal()
+    const sheetModal = useSheetModal().open
     const terminal = useTerminal()
     const searchFieldRef = terminal.searchFieldRef
 
@@ -41,7 +42,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            if (!terminal.modal) {
+            if (!terminal.modal && !sheetModal) {
                 if (event.ctrlKey && event.key === "'") {
                     openSheetModal()
                 } else if (event.key === "'") {
@@ -76,7 +77,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
         return () => {
             window.removeEventListener("keydown", onKeyDown)
         }
-    }, [terminal.modal, currentSheets, currentLanguage])
+    }, [terminal.modal, currentSheets, currentLanguage, sheetModal])
 
     return (
         <div className="Code-Page" style={styles.body}>
