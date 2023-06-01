@@ -10,6 +10,7 @@ import { Content } from "./Content"
 import { useCurrentSheets } from "../../hooks/useCurrentSheets"
 import { useSheets } from "../../hooks/useSheets"
 import { useSheetModal } from "../../hooks/useSheetModal"
+import { useTerminal } from "../../hooks/useTerminal"
 
 interface CodeProps {}
 
@@ -20,30 +21,43 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const { currentSheets, setCurrentSheets } = useCurrentSheets()
     const { openSheetModal } = useSheetModal()
     const searchFieldRef = useRef<HTMLInputElement>(null)
+    const terminal = useTerminal()
+
+    const checkFocus = () => {
+        if (document.activeElement === searchFieldRef.current) return true
+    }
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            if (event.ctrlKey && event.key === "'") {
-                openSheetModal()
-            } else if (event.key === "'") {
-                event.preventDefault()
-                searchFieldRef.current?.focus()
+            const focused_search = checkFocus()
 
-                if (searchFieldRef.current?.value)
-                    setCurrentSheets(
-                        sheets.filter(
-                            (sheet) =>
-                                sheet.language.id == currentLanguage.id &&
-                                (sheet.title.includes(searchFieldRef.current!.value) ||
-                                    sheet.keywords.includes(searchFieldRef.current!.value) ||
-                                    sheet.code.includes(searchFieldRef.current!.value))
+            if (!focused_search && event.key === "/") {
+                terminal.setModal(true)
+            }
+
+            if (!terminal.modal) {
+                if (event.ctrlKey && event.key === "'") {
+                    openSheetModal()
+                } else if (event.key === "'") {
+                    event.preventDefault()
+                    searchFieldRef.current?.focus()
+
+                    if (searchFieldRef.current?.value)
+                        setCurrentSheets(
+                            sheets.filter(
+                                (sheet) =>
+                                    sheet.language.id == currentLanguage.id &&
+                                    (sheet.title.includes(searchFieldRef.current!.value) ||
+                                        sheet.keywords.includes(searchFieldRef.current!.value) ||
+                                        sheet.code.includes(searchFieldRef.current!.value))
+                            )
                         )
-                    )
-            } else if (event.key === "Escape") {
-                searchFieldRef.current?.blur()
-            } else if (event.key === "Enter") {
-                console.log(currentSheets)
-                if (currentSheets.length == 1) openSheetModal(currentSheets[0])
+                } else if (event.key === "Escape") {
+                    searchFieldRef.current?.blur()
+                } else if (event.key === "Enter") {
+                    console.log(currentSheets)
+                    if (currentSheets.length == 1) openSheetModal(currentSheets[0])
+                }
             }
         }
 
@@ -52,7 +66,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
         return () => {
             window.removeEventListener("keydown", onKeyDown)
         }
-    }, [])
+    }, [terminal.modal, currentSheets])
 
     return (
         <div className="Code-Page" style={styles.body}>

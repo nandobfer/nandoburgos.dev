@@ -13,9 +13,13 @@ import { SheetsProvider } from "./contexts/sheetsContext"
 import { CurrentSheetsProvider } from "./contexts/currentSheetsContext"
 import { SheetModalProvider } from "./contexts/sheetModalContext"
 import { SheetModal } from "./components/SheetModal"
+import { AuthenticationProvider } from "./contexts/authenticationContext"
+import { TerminalProvider } from "./contexts/terminalContext"
+import { Terminal } from "./components/Terminal"
 
 const App = () => {
     const muiTheme = useMuiTheme()
+
     return (
         <ThemeProvider theme={muiTheme}>
             <SnackbarProvider>
@@ -23,17 +27,22 @@ const App = () => {
                     <SheetsProvider>
                         <CurrentSheetsProvider>
                             <CurrentLanguageProvider>
-                                <SheetModalProvider>
-                                    <BrowserRouter>
-                                        <Snackbar />
-                                        <SheetModal />
-                                        <Header />
-                                        <Routes>
-                                            <Route index element={<Home />} />
-                                            <Route path="/code" element={<Code />} />
-                                        </Routes>
-                                    </BrowserRouter>
-                                </SheetModalProvider>
+                                <AuthenticationProvider>
+                                    <SheetModalProvider>
+                                        <TerminalProvider>
+                                            <BrowserRouter>
+                                                <Snackbar />
+                                                <Terminal />
+                                                <SheetModal />
+                                                <Header />
+                                                <Routes>
+                                                    <Route index element={<Home />} />
+                                                    <Route path="/code" element={<Code />} />
+                                                </Routes>
+                                            </BrowserRouter>
+                                        </TerminalProvider>
+                                    </SheetModalProvider>
+                                </AuthenticationProvider>
                             </CurrentLanguageProvider>
                         </CurrentSheetsProvider>
                     </SheetsProvider>
