@@ -49,6 +49,24 @@ export const LanguagesProvider: React.FC<LanguagesProviderProps> = ({ children }
             color: "",
             sheets: [],
         },
+        {
+            id: 6,
+            name: "react",
+            color: "",
+            sheets: [],
+        },
+        {
+            id: 7,
+            name: "node",
+            color: "",
+            sheets: [],
+        },
+        {
+            id: 8,
+            name: "vim",
+            color: "",
+            sheets: [],
+        },
     ])
 
     useEffect(() => {
