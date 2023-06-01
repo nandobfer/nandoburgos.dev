@@ -23,10 +23,6 @@ export const CurrentLanguageProvider: React.FC<CurrentLanguageProviderProps> = (
     const [value, setValue] = useState<Language>(languages[0])
 
     useEffect(() => {
-        if (value.sheets) setCurrentSheets(value.sheets)
-    }, [value])
-
-    useEffect(() => {
         setValue(languages.filter((language) => language.id == value.id)[0])
     }, [languages])
 

@@ -9,7 +9,7 @@ import { SheetContainer } from "./SheetContainer"
 interface ContentProps {}
 
 export const Content: React.FC<ContentProps> = ({}) => {
-    const skeletons = useArray().newArray(5)
+    const skeletons = useArray().newArray(8)
     const { currentSheets } = useCurrentSheets()
 
     return (

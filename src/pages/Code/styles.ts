@@ -21,6 +21,7 @@ const styles: Styles = {
         width: "100vw",
         height: "100vh",
         overflowY: "hidden",
+        flexGrow: 0,
     },
 
     wrapper: {
@@ -40,11 +41,12 @@ const styles: Styles = {
         width: "80%",
         flexShrink: 0,
         flexDirection: "column",
-        height: "95%",
+        height: "41.5vw",
         outline: `1px solid ${colors.border}`,
         gap: "1vw",
         padding: "0.5vw",
         overflowY: "auto",
+        flexGrow: 0,
     },
 
     menu: {

@@ -53,6 +53,9 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     }
 
     const handleSubmit = (values: FormValues) => {
+        if (loading) return
+        if (Object.entries(values).filter((obj) => !obj[1]).length) return
+
         setLoading(true)
 
         if (sheet) {
@@ -82,7 +85,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
             aria-describedby="alert-dialog-description"
             sx={styles.body}
         >
-            <DialogTitle sx={styles.title}>{"edit sheet" || "new sheet"}</DialogTitle>
+            <DialogTitle sx={styles.title}>{sheet ? "edit sheet" : "new sheet"}</DialogTitle>
             <DialogContent sx={styles.content}>
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (

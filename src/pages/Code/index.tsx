@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState, useCallback } from "react"
 import styles from "./styles"
 import { SearchField } from "../../components/SearchField"
 import { useLanguages } from "../../hooks/useLanguages"
@@ -9,6 +9,7 @@ import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
 import { Content } from "./Content"
 import { useCurrentSheets } from "../../hooks/useCurrentSheets"
 import { useSheets } from "../../hooks/useSheets"
+import { useSheetModal } from "../../hooks/useSheetModal"
 
 interface CodeProps {}
 
@@ -16,16 +17,33 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const { languages } = useLanguages()
     const { currentLanguage, setCurrentLanguage } = useCurrentLanguage()
     const { sheets } = useSheets()
-    const { setCurrentSheets } = useCurrentSheets()
+    const { currentSheets, setCurrentSheets } = useCurrentSheets()
+    const { openSheetModal } = useSheetModal()
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "'") {
+            if (event.ctrlKey && event.key === "'") {
+                openSheetModal()
+            } else if (event.key === "'") {
                 event.preventDefault()
                 searchFieldRef.current?.focus()
+
+                if (searchFieldRef.current?.value)
+                    setCurrentSheets(
+                        sheets.filter(
+                            (sheet) =>
+                                sheet.language.id == currentLanguage.id &&
+                                (sheet.title.includes(searchFieldRef.current!.value) ||
+                                    sheet.keywords.includes(searchFieldRef.current!.value) ||
+                                    sheet.code.includes(searchFieldRef.current!.value))
+                        )
+                    )
             } else if (event.key === "Escape") {
                 searchFieldRef.current?.blur()
+            } else if (event.key === "Enter") {
+                console.log(currentSheets)
+                if (currentSheets.length == 1) openSheetModal(currentSheets[0])
             }
         }
 
