@@ -47,6 +47,7 @@ export const Terminal: React.FC<TerminalProps> = ({}) => {
                 type={terminal.inputType}
                 sx={styles.textfield}
                 InputProps={{ startAdornment: <p style={{ marginRight: "0.5vw" }}>{">"}</p> }}
+                autoComplete="off"
             />
         </Dialog>
     )
