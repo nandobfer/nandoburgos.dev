@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Sheet } from "../../definitions/languages"
 import { useSheetModal } from "../../hooks/useSheetModal"
 import {
@@ -39,6 +39,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
     const { authentication } = useAuthentication()
     const refresh = useRefresh()
     const api = useApi()
+    const titleRef = useRef<HTMLInputElement>(null)
 
     const [loading, setLoading] = useState(false)
 
@@ -84,6 +85,10 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
         }
     }
 
+    useEffect(() => {
+        if (open) setTimeout(() => titleRef.current?.focus(), 100)
+    }, [open])
+
     return (
         <Dialog
             open={open}
@@ -97,7 +102,13 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                     {({ values, handleChange }) => (
                         <Form style={styles.form}>
-                            <TextField label="title" name="title" value={values.title} onChange={handleChange} />
+                            <TextField
+                                label="title"
+                                name="title"
+                                value={values.title}
+                                onChange={handleChange}
+                                inputRef={titleRef}
+                            />
                             <TextField
                                 label="code"
                                 multiline
