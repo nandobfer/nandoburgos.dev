@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styles from "./styles"
+import { useTerminal } from "../../hooks/useTerminal"
 
 interface HomeProps {}
 

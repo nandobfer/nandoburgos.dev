@@ -20,21 +20,11 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const { sheets } = useSheets()
     const { currentSheets, setCurrentSheets } = useCurrentSheets()
     const { openSheetModal } = useSheetModal()
-    const searchFieldRef = useRef<HTMLInputElement>(null)
     const terminal = useTerminal()
-
-    const checkFocus = () => {
-        if (document.activeElement === searchFieldRef.current) return true
-    }
+    const searchFieldRef = terminal.searchFieldRef
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            const focused_search = checkFocus()
-
-            if (!focused_search && event.key === "/") {
-                terminal.setModal(true)
-            }
-
             if (!terminal.modal) {
                 if (event.ctrlKey && event.key === "'") {
                     openSheetModal()
