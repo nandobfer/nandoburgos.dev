@@ -1,12 +1,27 @@
 import { useContext, useEffect } from "react"
 import TerminalContext from "../contexts/terminalContext"
+import { useNavigate } from "react-router-dom"
 
 export const useTerminal = () => {
     const terminal = useContext(TerminalContext)
-    const { modal, setModal } = terminal
+    const navigate = useNavigate()
 
     const checkFocus = () => {
         if (document.activeElement === terminal.searchFieldRef.current) return true
+    }
+
+    const execute = () => {
+        console.log(terminal.shell)
+        const splited = terminal.shell.split(" ")
+        if (splited.length < 2) return
+
+        const command = splited[0]
+        const argument = splited[1]
+
+        if (command == "navigate") navigate(argument)
+
+        terminal.setModal(false)
+        terminal.setShell("")
     }
 
     useEffect(() => {
@@ -16,6 +31,12 @@ export const useTerminal = () => {
             if (!focused_search && event.key === "/") {
                 terminal.setModal(true)
             }
+
+            if (terminal.modal) {
+                if (event.key === "Enter") {
+                    execute()
+                }
+            }
         }
 
         window.addEventListener("keydown", onKeyDown)
@@ -23,7 +44,7 @@ export const useTerminal = () => {
         return () => {
             window.removeEventListener("keydown", onKeyDown)
         }
-    }, [terminal.modal])
+    }, [terminal.modal, terminal.shell])
 
     return terminal
 }
