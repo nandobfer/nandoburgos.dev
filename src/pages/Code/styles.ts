@@ -40,7 +40,7 @@ const styles: Styles = {
         height: "100%",
         outline: `1px solid ${colors.border}`,
         gap: "1vw",
-        // padding: "2vw",
+        padding: "0.5vw",
     },
 
     menu: {
@@ -62,7 +62,6 @@ const styles: Styles = {
     skeleton: {
         width: "100%",
         height: "4.5vw",
-        margin: "0 0.5vw",
     },
 }
 export default styles

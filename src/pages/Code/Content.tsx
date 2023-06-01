@@ -23,7 +23,7 @@ export const Content: React.FC<ContentProps> = ({}) => {
             ) : (
                 <>
                     {skeletons.map((index) => (
-                        <Skeleton key={index} variant="rectangular" sx={styles.skeleton} animation="wave" />
+                        <Skeleton key={index} variant="rounded" sx={styles.skeleton} animation="wave" />
                     ))}
                 </>
             )}
