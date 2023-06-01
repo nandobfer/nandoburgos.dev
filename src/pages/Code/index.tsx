@@ -28,7 +28,15 @@ export const Code: React.FC<CodeProps> = ({}) => {
         if (currentLanguage.id + delta <= 0) return
 
         setCurrentLanguage(languages.filter((language) => language.id == currentLanguage.id + delta)[0])
-        setCurrentSheets(sheets.filter((sheet) => sheet.language.id == currentLanguage.id + delta))
+        setCurrentSheets(
+            sheets.filter(
+                (sheet) =>
+                    sheet.language.id == currentLanguage.id + delta &&
+                    (sheet.title.includes(searchFieldRef.current!.value) ||
+                        sheet.keywords.includes(searchFieldRef.current!.value) ||
+                        sheet.code.includes(searchFieldRef.current!.value))
+            )
+        )
     }
 
     useEffect(() => {
