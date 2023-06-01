@@ -25,7 +25,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
 
     const navigateLanguage = (delta: number) => {
         if (currentLanguage.id + delta > languages.length) return
-        if (currentLanguage.id + delta < 0) return
+        if (currentLanguage.id + delta <= 0) return
 
         setCurrentLanguage(languages.filter((language) => language.id == currentLanguage.id + delta)[0])
         setCurrentSheets(sheets.filter((sheet) => sheet.language.id == currentLanguage.id + delta))
@@ -33,7 +33,6 @@ export const Code: React.FC<CodeProps> = ({}) => {
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            console.log(event.key)
             if (!terminal.modal) {
                 if (event.ctrlKey && event.key === "'") {
                     openSheetModal()
