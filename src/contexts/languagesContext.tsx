@@ -21,31 +21,31 @@ export const LanguagesProvider: React.FC<LanguagesProviderProps> = ({ children }
     const [value, setValue] = useState<Language[]>([
         {
             id: 1,
-            title: "python",
+            name: "python",
             color: "",
             sheets: [],
         },
         {
             id: 2,
-            title: "javascript",
+            name: "javascript",
             color: "",
             sheets: [],
         },
         {
             id: 3,
-            title: "git",
+            name: "git",
             color: "",
             sheets: [],
         },
         {
             id: 4,
-            title: "powershell",
+            name: "powershell",
             color: "",
             sheets: [],
         },
         {
             id: 5,
-            title: "bash",
+            name: "bash",
             color: "",
             sheets: [],
         },

@@ -1,6 +1,6 @@
 export interface Language {
     id: number
-    title: string
+    name: string
     color: string
     sheets?: Sheet[]
 }

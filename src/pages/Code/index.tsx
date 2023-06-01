@@ -48,7 +48,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
 
                         return (
                             <MenuItem sx={menuStyle} key={language.id} onClick={() => setCurrentLanguage(language)}>
-                                {language.title}
+                                {language.name}
                             </MenuItem>
                         )
                     })}

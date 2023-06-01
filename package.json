@@ -17,6 +17,7 @@
     "burgos-confirm": "^1.1.3",
     "burgos-masks": "^1.0.3",
     "burgos-snackbar": "^2.0.18",
+    "formik": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",

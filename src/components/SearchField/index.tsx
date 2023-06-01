@@ -1,11 +1,14 @@
 import React, { useState, useEffect, RefObject } from "react"
-import { Autocomplete, TextField, MenuItem } from "@mui/material"
+import { Autocomplete, TextField, MenuItem, SxProps } from "@mui/material"
 import { Language, Sheet } from "../../definitions/languages"
 import styles from "./styles"
 import { useLanguages } from "../../hooks/useLanguages"
 import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
 import { useSheets } from "../../hooks/useSheets"
 import { useCurrentSheets } from "../../hooks/useCurrentSheets"
+import colors from "../../colors"
+import AddBoxIcon from "@mui/icons-material/AddBox"
+import { useSheetModal } from "../../hooks/useSheetModal"
 
 interface SearchFieldProps {
     innerRef?: RefObject<HTMLInputElement>
@@ -23,27 +26,17 @@ export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
     const { sheets } = useSheets()
     const { setCurrentLanguage } = useCurrentLanguage()
     const { setCurrentSheets } = useCurrentSheets()
+    const { openSheetModal } = useSheetModal()
 
-    const [options, setOptions] = useState<(Language | Sheet)[]>([])
-    const [inputValue, setInputValue] = useState("")
     const [value, setValue] = useState("")
 
     useEffect(() => {
-        setOptions([
-            ...languages.filter((language) => language.title.includes(inputValue)),
-            ...sheets.filter(
-                (sheet) =>
-                    sheet.title.includes(inputValue) ||
-                    sheet.keywords.includes(inputValue) ||
-                    sheet.code.includes(inputValue)
-            ),
-        ])
         setCurrentSheets(
             sheets.filter(
                 (sheet) => sheet.title.includes(value) || sheet.keywords.includes(value) || sheet.code.includes(value)
             )
         )
-    }, [inputValue, value])
+    }, [value])
 
     return (
         <div className="SearchField-Component" style={styles.body}>
@@ -54,6 +47,10 @@ export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
                 placeholder="code or keyword"
                 inputProps={{ ref: innerRef }}
             />
+            <MenuItem sx={styles.addButton} onClick={() => openSheetModal()}>
+                {" "}
+                <AddBoxIcon /> add
+            </MenuItem>
         </div>
     )
 }

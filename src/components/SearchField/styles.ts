@@ -5,6 +5,7 @@ interface Styles {
     body: React.CSSProperties
     autocomplete: SxProps
     listbox: SxProps
+    addButton: SxProps
 }
 
 const styles: Styles = {
@@ -12,6 +13,7 @@ const styles: Styles = {
         width: "100%",
         backgroundColor: colors.backgroundDark,
         padding: "0.5vw",
+        gap: "0.5vw",
         // outline: `1px solid ${colors.border}`,
     },
 
@@ -22,6 +24,17 @@ const styles: Styles = {
     listbox: {
         width: "100vw",
         color: colors.secondary,
+    },
+
+    addButton: {
+        backgroundColor: colors.primary,
+        color: colors.secondary,
+        borderRadius: "0.2vw",
+        gap: "0.5vw",
+
+        "&:hover": {
+            backgroundColor: colors.primaryHover,
+        },
     },
 }
 

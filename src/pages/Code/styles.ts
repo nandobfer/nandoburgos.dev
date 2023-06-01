@@ -10,6 +10,8 @@ interface Styles {
     sheet: SxProps
     title: React.CSSProperties
     skeleton: SxProps
+    box: SxProps
+    menuitem: SxProps
 }
 
 const styles: Styles = {
@@ -50,9 +52,12 @@ const styles: Styles = {
     },
 
     sheet: {
-        display: "flex",
-        flexDirection: "column",
         padding: "1vw",
+    },
+
+    box: {
+        flexDirection: "column",
+        gap: "0.5vw",
     },
 
     title: {
@@ -62,6 +67,16 @@ const styles: Styles = {
     skeleton: {
         width: "100%",
         height: "4.5vw",
+    },
+
+    menuitem: {
+        color: colors.secondary,
+        borderRadius: "0.2vw",
+        marginLeft: "auto",
+
+        // "&:hover": {
+        //     backgroundColor: colors.primary,
+        // },
     },
 }
 export default styles
