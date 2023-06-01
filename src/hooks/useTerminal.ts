@@ -57,14 +57,16 @@ export const useTerminal = () => {
                 } else if (command == "logout") {
                     termLogout()
                     return
+                } else if (command == "cd") {
+                    navigate('/')
                 } else {
-                    navigate(terminal.shell)
+                    console.log(terminal.shell)
                 }
             } else if (splited.length == 2) {
                 const command = splited[0]
                 const argument = splited[1]
 
-                if (command == "navigate") navigate(argument)
+                if (command == "cd") navigate(argument)
             }
 
             terminal.setModal(false)
