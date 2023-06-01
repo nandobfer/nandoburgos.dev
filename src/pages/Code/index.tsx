@@ -25,6 +25,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const searchFieldRef = terminal.searchFieldRef
 
     const navigateLanguage = (delta: number) => {
+        if (document.activeElement === searchFieldRef.current) return
         if (currentLanguage.id + delta > languages.length) return
         if (currentLanguage.id + delta <= 0) return
 
