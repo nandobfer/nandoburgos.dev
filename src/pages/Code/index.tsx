@@ -23,8 +23,17 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const terminal = useTerminal()
     const searchFieldRef = terminal.searchFieldRef
 
+    const navigateLanguage = (delta: number) => {
+        if (currentLanguage.id + delta > languages.length) return
+        if (currentLanguage.id + delta < 0) return
+
+        setCurrentLanguage(languages.filter((language) => language.id == currentLanguage.id + delta)[0])
+        setCurrentSheets(sheets.filter((sheet) => sheet.language.id == currentLanguage.id + delta))
+    }
+
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
+            console.log(event.key)
             if (!terminal.modal) {
                 if (event.ctrlKey && event.key === "'") {
                     openSheetModal()
@@ -47,6 +56,10 @@ export const Code: React.FC<CodeProps> = ({}) => {
                 } else if (event.key === "Enter") {
                     console.log(currentSheets)
                     if (currentSheets.length == 1) openSheetModal(currentSheets[0])
+                } else if (event.key === "ArrowDown") {
+                    navigateLanguage(1)
+                } else if (event.key === "ArrowUp") {
+                    navigateLanguage(-1)
                 }
             }
         }
@@ -56,7 +69,7 @@ export const Code: React.FC<CodeProps> = ({}) => {
         return () => {
             window.removeEventListener("keydown", onKeyDown)
         }
-    }, [terminal.modal, currentSheets])
+    }, [terminal.modal, currentSheets, currentLanguage])
 
     return (
         <div className="Code-Page" style={styles.body}>
