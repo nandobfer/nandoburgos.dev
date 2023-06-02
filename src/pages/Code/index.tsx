@@ -11,6 +11,8 @@ import { useCurrentSheets } from "../../hooks/useCurrentSheets"
 import { useSheets } from "../../hooks/useSheets"
 import { useSheetModal } from "../../hooks/useSheetModal"
 import { useTerminal } from "../../hooks/useTerminal"
+import { useExecute } from "../../hooks/useExecute"
+import { useParams } from "react-router-dom"
 
 interface CodeProps {}
 
@@ -23,6 +25,8 @@ export const Code: React.FC<CodeProps> = ({}) => {
     const sheetModal = useSheetModal().open
     const terminal = useTerminal()
     const searchFieldRef = terminal.searchFieldRef
+    const execute = useExecute()
+    const params = useParams()
 
     const navigateLanguage = (delta: number) => {
         if (document.activeElement === searchFieldRef.current) return
@@ -79,6 +83,16 @@ export const Code: React.FC<CodeProps> = ({}) => {
             window.removeEventListener("keydown", onKeyDown)
         }
     }, [terminal.modal, currentSheets, currentLanguage, sheetModal])
+
+    useEffect(() => {
+        if (params.language) {
+            const language = languages.filter((item) => item.name == params.language)[0]
+            if (language) {
+                setCurrentLanguage(language)
+                setCurrentSheets(sheets.filter((sheet) => sheet.language.id == language.id))
+            }
+        }
+    }, [params.language])
 
     return (
         <div className="Code-Page" style={styles.body}>

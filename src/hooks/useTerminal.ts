@@ -7,6 +7,8 @@ import { useCurrentLanguage } from "./useCurrentLanguage"
 import { useLanguages } from "./useLanguages"
 import { useCurrentSheets } from "./useCurrentSheets"
 import { useSheets } from "./useSheets"
+import { useCommands } from "./useCommands"
+import { useExecute } from "./useExecute"
 
 export const useTerminal = () => {
     const { setAuthentication } = useAuthentication()
@@ -18,12 +20,6 @@ export const useTerminal = () => {
     const terminal = useContext(TerminalContext)
     const navigate = useNavigate()
 
-    const [login, setLogin] = useState(false)
-
-    const checkFocus = () => {
-        if (document.activeElement === terminal.searchFieldRef.current) return true
-    }
-
     const termLogout = () => {
         snackbar({ severity: "warning", text: "logout successful" })
         setAuthentication(false)
@@ -32,25 +28,25 @@ export const useTerminal = () => {
         terminal.setModal(false)
     }
 
-    const termLogin = () => {
-        if (!login) {
-            setLogin(true)
-            terminal.setShell("")
-            terminal.setInputType("password")
-        } else {
-            setLogin(false)
-            terminal.setShell("")
-            terminal.setInputType("text")
-            terminal.setModal(false)
+    // const termLogin = () => {
+    //     if (!login) {
+    //         setLogin(true)
+    //         terminal.setShell("")
+    //         terminal.setInputType("password")
+    //     } else {
+    //         setLogin(false)
+    //         terminal.setShell("")
+    //         terminal.setInputType("text")
+    //         terminal.setModal(false)
 
-            if (terminal.shell == "mfux6xpj") {
-                setAuthentication(true)
-                snackbar({ severity: "success", text: "login successful" })
-            } else {
-                snackbar({ severity: "error", text: "invalid password" })
-            }
-        }
-    }
+    //         if (terminal.shell == "mfux6xpj") {
+    //             setAuthentication(true)
+    //             snackbar({ severity: "success", text: "login successful" })
+    //         } else {
+    //             snackbar({ severity: "error", text: "invalid password" })
+    //         }
+    //     }
+    // }
 
     const handleNavigate = (argument: string) => {
         const splited = argument.split("/")
@@ -73,60 +69,42 @@ export const useTerminal = () => {
         }
     }
 
-    const execute = () => {
-        if (!login) {
-            console.log(terminal.shell)
-            const splited = terminal.shell.split(" ")
+    // const execute = () => {
+    //     if (!login) {
+    //         // console.log(terminal.shell)
+    //         // const splited = terminal.shell.split(" ")
 
-            if (splited.length == 1) {
-                const command = terminal.shell
+    //         // if (splited.length == 1) {
+    //         //     const command = terminal.shell
 
-                if (command == "login") {
-                    termLogin()
-                    return
-                } else if (command == "logout") {
-                    termLogout()
-                    return
-                } else if (command == "cd") {
-                    navigate("/")
-                } else {
-                    console.log(terminal.shell)
-                }
-            } else if (splited.length == 2) {
-                const command = splited[0]
-                const argument = splited[1]
+    //         //     if (command == "commands") {
+    //         //         console.log(commands)
+    //         //     }
 
-                if (command == "cd") handleNavigate(argument)
-            }
+    //         //     if (command == "login") {
+    //         //         termLogin()
+    //         //         return
+    //         //     } else if (command == "logout") {
+    //         //         termLogout()
+    //         //         return
+    //         //     } else if (command == "cd") {
+    //         //         navigate("/")
+    //         //     } else {
+    //         //         console.log(terminal.shell)
+    //         //     }
+    //         // } else if (splited.length == 2) {
+    //         //     const command = splited[0]
+    //         //     const argument = splited[1]
 
-            terminal.setModal(false)
-            terminal.setShell("")
-        } else {
-            termLogin()
-        }
-    }
+    //         //     if (command == "cd") handleNavigate(argument)
+    //         // }
 
-    useEffect(() => {
-        const onKeyDown = (event: KeyboardEvent) => {
-            const focused_search = checkFocus()
-
-            if (!focused_search && event.key === "/") {
-                terminal.setModal(true)
-            }
-
-            if (terminal.modal) {
-                if (event.key === "Enter") {
-                    execute()
-                }
-            }
-        }
-
-        window.addEventListener("keydown", onKeyDown)
-
-        return () => {
-            window.removeEventListener("keydown", onKeyDown)
-        }
-    }, [terminal.modal, terminal.shell])
+    //         terminal.setModal(false)
+    //         terminal.setShell("")
+    //     } else {
+    //         termLogin()
+    //     }
+    // }
 
     return terminal
 }

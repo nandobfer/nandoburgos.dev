@@ -37,7 +37,9 @@ const App = () => {
                                                 <Header />
                                                 <Routes>
                                                     <Route index element={<Home />} />
+                                                    <Route path="*" element={<Home />} />
                                                     <Route path="/code" element={<Code />} />
+                                                    <Route path="/code/:language" element={<Code />} />
                                                 </Routes>
                                             </BrowserRouter>
                                         </TerminalProvider>
