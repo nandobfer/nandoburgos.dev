@@ -7,7 +7,7 @@ export const useHelp = () => {
     const output = terminal.stdout
 
     const help = (command: string) => {
-        const list = commands.slice(0, -1).map((item) => `${item.id} - ${item.command} - ${item.usage}`)
+        const list = commands.slice(0, -1).map((item) => `${item.command} - ${item.usage}`)
         output.setContentTitle(commands.slice(-1)[0].usage)
         output.setContent(list)
         output.setOpen(true)
