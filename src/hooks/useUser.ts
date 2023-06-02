@@ -25,7 +25,11 @@ export const useUser = () => {
                 terminal.setShell("")
                 terminal.setPlaceholder(`${placeholder} password`)
             } else {
-                terminal.setPlaceholder(JSON.stringify(authentication, null, 2))
+                // stdout current user
+                const user_string = authentication
+                    ? ` ${authentication.id} - ${authentication.username} / ${authentication.name}`
+                    : ""
+                terminal.setPlaceholder(user_string)
                 terminal.setShell("")
             }
         }
