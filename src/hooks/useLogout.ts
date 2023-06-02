@@ -4,13 +4,18 @@ import { useTerminal } from "./useTerminal"
 
 export const useLogout = () => {
     const terminal = useTerminal()
-    const { setAuthentication } = useAuthentication()
+    const { authentication, setAuthentication } = useAuthentication()
     const { snackbar } = useSnackbar()
 
     const logout = () => {
-        setAuthentication(null)
-        terminal.close()
-        snackbar({ severity: "warning", text: "logged out" })
+        if (authentication) {
+            setAuthentication(null)
+            terminal.close()
+            snackbar({ severity: "warning", text: "logged out" })
+        } else {
+            terminal.setPlaceholder("there is no user logged")
+            terminal.setShell("")
+        }
     }
 
     return logout

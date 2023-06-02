@@ -16,6 +16,7 @@ export const useUser = () => {
             const [placeholder, password] = command.split(" ")
             tryLogin(password)
             terminal.setPlaceholder("validating")
+            terminal.setShell("")
         } else {
             const [placeholder, user] = command.split(" ")
             if (user) {
@@ -39,11 +40,15 @@ export const useUser = () => {
                     setAuthentication(user)
                     console.log(user)
                     snackbar({ severity: "success", text: "login successful" })
+                    terminal.close()
                 } else {
                     snackbar({ severity: "error", text: "login failed" })
+                    terminal.setPlaceholder("login failed, try again")
+                    terminal.setShell("")
+                    terminal.setInputType("text")
+                    setUsername("")
                 }
             },
-            finallyCallback: () => terminal.close(),
         })
     }
 
