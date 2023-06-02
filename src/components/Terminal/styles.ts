@@ -33,6 +33,20 @@ const styles: Styles = {
         flexDirection: "column",
         gap: "0.5vw",
         padding: "1vw",
+
+        "::-webkit-scrollbar-track": {
+            // boxShadow: "inset 0 0 5px white",
+            background: colors.background,
+        },
+
+        "::-webkit-scrollbar-thumb": {
+            // boxShadow: `inset 0 0 5px ${colors.primary}`,
+            background: colors.primary,
+        },
+
+        title: {
+            color: colors.primary,
+        },
     },
 }
 

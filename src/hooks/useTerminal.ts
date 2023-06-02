@@ -9,6 +9,10 @@ export const useTerminal = () => {
         terminal.setShell("")
         terminal.setInputType("text")
         terminal.setPlaceholder("")
+
+        terminal.stdout.setContent([])
+        terminal.stdout.setContentTitle("")
+        terminal.stdout.setOpen(false)
     }
 
     return { ...terminal, close }

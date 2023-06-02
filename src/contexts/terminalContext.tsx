@@ -6,6 +6,8 @@ interface Stdout {
     setOpen: (open: boolean) => void
     content: string[]
     setContent: (content: string[]) => void
+    contentTitle: string
+    setContentTitle: (content: string) => void
 }
 
 interface TerminalContextValue {
@@ -40,12 +42,15 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
     const [openStdout, setOpenStdout] = useState(false)
-    const [contentStdout, setContentStdout] = useState<string[]>(["oi", "teste"])
+    const [contentStdout, setContentStdout] = useState<string[]>([])
+    const [contentTitleStdout, setContentTitleStdout] = useState("")
     const stdout: Stdout = {
         open: openStdout,
         setOpen: setOpenStdout,
         content: contentStdout,
         setContent: setContentStdout,
+        contentTitle: contentTitleStdout,
+        setContentTitle: setContentTitleStdout,
     }
 
     return (

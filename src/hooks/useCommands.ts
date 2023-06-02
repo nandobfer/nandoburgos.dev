@@ -1,5 +1,6 @@
 import { Command } from "../definitions/commands"
 import { useCd } from "./useCd"
+import { useFind } from "./useFind"
 import { useLogout } from "./useLogout"
 import { useUser } from "./useUser"
 
@@ -19,6 +20,11 @@ export const useCommands = () => {
             id: 3,
             command: "logout",
             callback: useLogout(),
+        },
+        {
+            id: 4,
+            command: "find",
+            callback: useFind(),
         },
     ]
 
