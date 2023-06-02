@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 <GitHubIcon />
             </MenuItem> */}
             <MenuItem
-                sx={{ color: colors.secondary, gap: "0.5vw" }}
+                sx={{ marginLeft: "auto", color: colors.secondary, gap: "0.5vw" }}
                 onClick={() => window.open("https://github.com/nandobfer", "_blank")?.focus()}
             >
                 <GitHubIcon />
