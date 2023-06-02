@@ -2,13 +2,21 @@ import { useSnackbar } from "burgos-snackbar"
 import { useApi } from "./useApi"
 import { useTerminal } from "./useTerminal"
 import { AxiosResponse } from "axios"
+import { useAuthentication } from "./useAuthentication"
 
 export const useAddUser = () => {
     const terminal = useTerminal()
     const api = useApi()
     const { snackbar } = useSnackbar()
+    const { authentication } = useAuthentication()
 
     const addUser = (command: string) => {
+        if (!authentication) {
+            terminal.setShell("")
+            terminal.setPlaceholder("unauthorized")
+            return
+        }
+
         const args = command.split(" ")
         args.shift()
         const username = args.shift()
