@@ -1,4 +1,5 @@
 import { Command } from "../definitions/commands"
+import { useAddUser } from "./useAddUser"
 import { useCd } from "./useCd"
 import { useFind } from "./useFind"
 import { useHelp } from "./useHelp"
@@ -36,6 +37,18 @@ export const useCommands = () => {
             command: "help",
             callback: useHelp(),
             usage: '"help" list current featured commands and their usages',
+        },
+        {
+            id: 6,
+            command: "adduser",
+            callback: useAddUser(),
+            usage: '"adduser username password name" add a new user. is required to be authenticated',
+        },
+        {
+            id: 7,
+            command: "delete",
+            callback: useHelp(),
+            usage: `"delete id" delete a sheet code by it's id`,
         },
     ]
 

@@ -25,6 +25,16 @@ export const useCommandsUsage = () => {
             command: "help",
             usage: '"help" list current featured commands and their usages',
         },
+        {
+            id: 6,
+            command: "adduser",
+            usage: '"adduser username password name" add a new user. is required to be authenticated',
+        },
+        {
+            id: 7,
+            command: "delete",
+            usage: `"delete id" delete a sheet code by it's id`,
+        },
     ]
 
     return usages

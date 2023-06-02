@@ -49,6 +49,12 @@ export const useApi = () => {
                     .catch((error) => defaultError(error, options.errorCallback))
                     .finally(() => defaultFinally(options.finallyCallback))
             },
+            delete: (options: ApiOptions) => {
+                api.post("/sheets/delete", options.data)
+                    .then((response) => options.callback(response))
+                    .catch((error) => defaultError(error, options.errorCallback))
+                    .finally(() => defaultFinally(options.finallyCallback))
+            },
         },
         user: {
             list: (options: ApiOptions) => {
@@ -59,6 +65,12 @@ export const useApi = () => {
             },
             login: (options: ApiOptions) => {
                 api.post("/user", options.data)
+                    .then((response) => options.callback(response))
+                    .catch((error) => defaultError(error, options.errorCallback))
+                    .finally(() => defaultFinally(options.finallyCallback))
+            },
+            add: (options: ApiOptions) => {
+                api.post("/user/add", options.data)
                     .then((response) => options.callback(response))
                     .catch((error) => defaultError(error, options.errorCallback))
                     .finally(() => defaultFinally(options.finallyCallback))
