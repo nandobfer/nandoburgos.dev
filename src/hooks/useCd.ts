@@ -1,8 +1,10 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { useCurrentLanguage } from "./useCurrentLanguage"
 import { useLanguages } from "./useLanguages"
+import { useTerminal } from "./useTerminal"
 
 export const useCd = () => {
+    const terminal = useTerminal()
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -18,6 +20,8 @@ export const useCd = () => {
                 navigate(destination)
             }
         }
+
+        terminal.close()
     }
 
     return cd

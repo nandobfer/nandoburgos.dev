@@ -2,8 +2,8 @@ import { createContext, useState } from "react"
 import React from "react"
 
 interface AuthenticationContextValue {
-    value: boolean
-    setValue: (value: boolean) => void
+    value: User | null
+    setValue: (value: User | null) => void
 }
 
 interface AuthenticationProviderProps {
@@ -15,7 +15,7 @@ const AuthenticationContext = createContext<AuthenticationContextValue>({} as Au
 export default AuthenticationContext
 
 export const AuthenticationProvider: React.FC<AuthenticationProviderProps> = ({ children }) => {
-    const [value, setValue] = useState(false)
+    const [value, setValue] = useState<User | null>(null)
 
     return <AuthenticationContext.Provider value={{ value, setValue }}>{children}</AuthenticationContext.Provider>
 }

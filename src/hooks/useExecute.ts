@@ -6,17 +6,18 @@ export const useExecute = () => {
     const commands = useCommands()
     const terminal = useTerminal()
 
-    const [login, setLogin] = useState(false)
-
     const checkFocus = () => {
         if (document.activeElement === terminal.searchFieldRef.current) return true
     }
 
     const execute = (shell: string) => {
         const command = commands.filter((item) => item.command == shell.split(" ")[0])[0]
+        console.log(command)
+
         if (command) {
             command.callback(shell)
-            terminal.setModal(false)
+        } else {
+            terminal.setPlaceholder(`command "${shell}" not registered`)
             terminal.setShell("")
         }
     }
