@@ -16,10 +16,10 @@ import { SheetModal } from "./components/SheetModal"
 import { AuthenticationProvider } from "./contexts/authenticationContext"
 import { TerminalProvider } from "./contexts/terminalContext"
 import { Terminal } from "./components/Terminal"
+import { DarkModeProvider } from "./contexts/darkModeContext"
 
-const App = () => {
+const Themed = () => {
     const muiTheme = useMuiTheme()
-
     return (
         <ThemeProvider theme={muiTheme}>
             <SnackbarProvider>
@@ -51,6 +51,14 @@ const App = () => {
                 </LanguagesProvider>
             </SnackbarProvider>
         </ThemeProvider>
+    )
+}
+
+const App = () => {
+    return (
+        <DarkModeProvider>
+            <Themed />
+        </DarkModeProvider>
     )
 }
 

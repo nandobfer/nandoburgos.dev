@@ -1,37 +1,33 @@
 import { createTheme } from "@mui/material"
 import colors from "../colors"
+import { useDarkMode } from "./useDarkMode"
+import { useMemo } from "react"
 
 export const useMuiTheme = () => {
-    const THEME = createTheme({
-        typography: {
-            fontFamily: ["Fira Code"].join(","),
-            //  "fontSize": 14,
-            //  "fontWeightLight": 300,
-            //  "fontWeightRegular": 400,
-            //  "fontWeightMedium": 500
-        },
-        palette: {
-            mode: "dark",
+    const { darkMode } = useDarkMode()
 
-            primary: {
-                main: colors.primary,
+    const THEME = useMemo(() => {
+        console.log(darkMode)
+
+        return createTheme({
+            typography: {
+                fontFamily: ["Fira Code"].join(","),
             },
-            secondary: {
-                main: colors.secondary,
+            palette: {
+                mode: darkMode ? "dark" : "light",
+
+                primary: {
+                    main: colors.primary,
+                },
+                secondary: {
+                    main: colors.secondary,
+                },
+                text: {
+                    primary: colors.text.primary,
+                },
             },
-            text: {
-                primary: colors.text.primary,
-                // secondary: colors.text.secondary,
-                // disabled: colors.primary,
-            },
-            // success: {
-            //     main: colors.green,
-            // },
-            // error: {
-            //     main: colors.red,
-            // }
-        },
-    })
+        })
+    }, [darkMode])
 
     return THEME
 }
