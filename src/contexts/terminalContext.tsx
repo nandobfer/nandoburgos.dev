@@ -37,7 +37,7 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
     const [modal, setModal] = useState(false)
     const [shell, setShell] = useState("")
     const [inputType, setInputType] = useState("text")
-    const [placeholder, setPlaceholder] = useState("")
+    const [placeholder, setPlaceholder] = useState("help")
     const [login, setLogin] = useState(false)
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
