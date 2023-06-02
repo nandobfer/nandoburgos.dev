@@ -11,7 +11,7 @@ export const useFind = () => {
             .filter(
                 (sheet) => sheet.title.includes(search) || sheet.keywords.includes(search) || sheet.code.includes(search)
             )
-            .map((sheet) => `${sheet.id} - ${sheet.language.name} - ${sheet.title}`)
+            .map((sheet) => `${sheet.id} - ${sheet.language.name} - ${sheet.title}: ${sheet.code}`)
 
         if (results.length > 0) {
             terminal.stdout.setContentTitle(`"${search}"`)
