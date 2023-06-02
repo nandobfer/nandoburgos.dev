@@ -108,6 +108,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                                 value={values.title}
                                 onChange={handleChange}
                                 inputRef={titleRef}
+                                autoComplete="off"
                             />
                             <TextField
                                 label="code"
@@ -117,6 +118,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                                 value={values.code}
                                 onChange={handleChange}
                                 placeholder="multiline code"
+                                autoComplete="off"
                             />
                             <TextField
                                 select
@@ -126,6 +128,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                                 onChange={handleChange}
                                 value={values.language}
                                 className="small-input"
+                                autoComplete="off"
                             >
                                 <MenuItem value={0} style={{ display: "none" }} disabled></MenuItem>
                                 {languages.map((language) => (
@@ -140,6 +143,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
                                 value={values.keywords}
                                 onChange={handleChange}
                                 placeholder="word, word, word"
+                                autoComplete="off"
                             />
                             <Button type="submit" variant="contained" sx={{ gap: "0.5vw" }} disabled={!authentication}>
                                 {loading ? (
