@@ -5,7 +5,7 @@ interface Styles {
     body: React.CSSProperties
     wrapper: React.CSSProperties
     sidebar: React.CSSProperties
-    maincontainer: React.CSSProperties
+    maincontainer: SxProps
     menu: SxProps
     sheet: SxProps
     title: React.CSSProperties
@@ -47,6 +47,14 @@ const styles: Styles = {
         padding: "0.5vw",
         overflowY: "auto",
         flexGrow: 0,
+
+        "::-webkit-scrollbar-track": {
+            background: colors.background,
+        },
+
+        "::-webkit-scrollbar-thumb": {
+            background: colors.primary,
+        },
     },
 
     menu: {

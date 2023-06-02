@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from "react"
 import styles from "./styles"
 import { SearchField } from "../../components/SearchField"
 import { useLanguages } from "../../hooks/useLanguages"
-import { MenuItem, SxProps } from "@mui/material"
+import { MenuItem, SxProps, Box } from "@mui/material"
 import colors from "../../colors"
 import { Language } from "../../definitions/languages"
 import { useCurrentLanguage } from "../../hooks/useCurrentLanguage"
@@ -122,9 +122,9 @@ export const Code: React.FC<CodeProps> = ({}) => {
                         )
                     })}
                 </div>
-                <div style={styles.maincontainer}>
+                <Box sx={styles.maincontainer}>
                     <Content />
-                </div>
+                </Box>
             </div>
         </div>
     )
