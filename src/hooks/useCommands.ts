@@ -1,6 +1,7 @@
 import { Command } from "../definitions/commands"
 import { useAddUser } from "./useAddUser"
 import { useCd } from "./useCd"
+import { useDeleteSheet } from "./useDeleteSheet"
 import { useFind } from "./useFind"
 import { useHelp } from "./useHelp"
 import { useLogout } from "./useLogout"
@@ -47,7 +48,7 @@ export const useCommands = () => {
         {
             id: 7,
             command: "delete",
-            callback: useHelp(),
+            callback: useDeleteSheet(),
             usage: `"delete id" delete a sheet code by it's id`,
         },
     ]
