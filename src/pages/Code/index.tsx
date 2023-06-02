@@ -69,9 +69,9 @@ export const Code: React.FC<CodeProps> = ({}) => {
                 } else if (event.key === "Enter") {
                     console.log(currentSheets)
                     if (currentSheets.length > 0) openSheetModal(currentSheets[0])
-                } else if (event.key === "ArrowDown") {
+                } else if (event.key === "ArrowDown" || event.key === "j") {
                     navigateLanguage(1)
-                } else if (event.key === "ArrowUp") {
+                } else if (event.key === "ArrowUp" || event.key === "k") {
                     navigateLanguage(-1)
                 }
             }

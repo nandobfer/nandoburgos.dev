@@ -11,6 +11,7 @@ import {
     MenuItem,
     TextField,
     CircularProgress,
+    Paper,
 } from "@mui/material"
 import styles from "./styles"
 import { Formik, Form } from "formik"
@@ -48,8 +49,15 @@ export const Terminal: React.FC<TerminalProps> = ({}) => {
                 type={terminal.inputType}
                 sx={styles.textfield}
                 InputProps={{ startAdornment: <p style={{ marginRight: "0.5vw" }}>{">"}</p> }}
-                autoComplete="off"
+                autoComplete="new-password"
             />
+            {terminal.stdout.open && (
+                <Paper sx={styles.stdout}>
+                    {terminal.stdout.content.map((item) => (
+                        <p key={terminal.stdout.content.indexOf(item)}>{item}</p>
+                    ))}
+                </Paper>
+            )}
         </Dialog>
     )
 }

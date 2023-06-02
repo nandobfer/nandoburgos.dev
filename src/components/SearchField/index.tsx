@@ -48,7 +48,7 @@ export const SearchField: React.FC<SearchFieldProps> = ({ innerRef }) => {
                 label="search"
                 placeholder="code or keyword"
                 inputProps={{ ref: innerRef }}
-                autoComplete="off"
+                autoComplete="new-password"
             />
             <MenuItem sx={styles.addButton} onClick={() => openSheetModal()}>
                 {" "}

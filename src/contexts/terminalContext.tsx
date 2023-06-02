@@ -1,6 +1,13 @@
 import { createContext, useState, useRef, Dispatch, SetStateAction } from "react"
 import React from "react"
 
+interface Stdout {
+    open: boolean
+    setOpen: (open: boolean) => void
+    content: string[]
+    setContent: (content: string[]) => void
+}
+
 interface TerminalContextValue {
     modal: boolean
     setModal: (modal: boolean) => void
@@ -13,6 +20,7 @@ interface TerminalContextValue {
     setPlaceholder: (type: string) => void
     password: boolean
     setPassword: (login: boolean) => void
+    stdout: Stdout
 }
 
 interface TerminalProviderProps {
@@ -31,6 +39,15 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
     const [login, setLogin] = useState(false)
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
+    const [openStdout, setOpenStdout] = useState(false)
+    const [contentStdout, setContentStdout] = useState<string[]>(["oi", "teste"])
+    const stdout: Stdout = {
+        open: openStdout,
+        setOpen: setOpenStdout,
+        content: contentStdout,
+        setContent: setContentStdout,
+    }
+
     return (
         <TerminalContext.Provider
             value={{
@@ -45,6 +62,7 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
                 setPlaceholder,
                 password: login,
                 setPassword: setLogin,
+                stdout,
             }}
         >
             {children}
