@@ -73,6 +73,12 @@ export const LanguagesProvider: React.FC<LanguagesProviderProps> = ({ children }
             color: "",
             sheets: [],
         },
+        {
+            id: 10,
+            name: "godot",
+            color: "",
+            sheets: [],
+        },
     ])
 
     useEffect(() => {
