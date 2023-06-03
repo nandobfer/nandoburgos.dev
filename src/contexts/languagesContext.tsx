@@ -67,6 +67,12 @@ export const LanguagesProvider: React.FC<LanguagesProviderProps> = ({ children }
             color: "",
             sheets: [],
         },
+        {
+            id: 9,
+            name: "c++",
+            color: "",
+            sheets: [],
+        },
     ])
 
     useEffect(() => {
