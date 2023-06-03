@@ -64,7 +64,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
 
         const data = {
             ...values,
-            id: authentication.id,
+            user_id: authentication.id,
         }
 
         setLoading(true)
