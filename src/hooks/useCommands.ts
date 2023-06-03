@@ -1,4 +1,5 @@
 import { Command } from "../definitions/commands"
+import { useAddSheet } from "./useAddSheet"
 import { useAddUser } from "./useAddUser"
 import { useCd } from "./useCd"
 import { useDeleteSheet } from "./useDeleteSheet"
@@ -50,6 +51,12 @@ export const useCommands = () => {
             command: "delete",
             callback: useDeleteSheet(),
             usage: `"delete id" delete a sheet code by it's id`,
+        },
+        {
+            id: 8,
+            command: "addsheet",
+            callback: useAddSheet(),
+            usage: `"opens empty sheet modal`,
         },
     ]
 

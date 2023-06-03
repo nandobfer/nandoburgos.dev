@@ -35,6 +35,11 @@ export const useCommandsUsage = () => {
             command: "delete",
             usage: `"delete id" delete a sheet code by it's id`,
         },
+        {
+            id: 8,
+            command: "addsheet",
+            usage: `"opens empty sheet modal`,
+        },
     ]
 
     return usages
