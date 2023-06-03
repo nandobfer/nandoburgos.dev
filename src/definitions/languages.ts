@@ -11,4 +11,5 @@ export interface Sheet {
     code: string
     keywords: string
     language: Language
+    user: User
 }

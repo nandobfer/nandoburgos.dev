@@ -62,11 +62,16 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
         if (loading) return
         if (Object.entries(values).filter((obj) => !obj[1]).length) return
 
+        const data = {
+            ...values,
+            id: authentication.id,
+        }
+
         setLoading(true)
 
         if (sheet) {
             api.sheets.update({
-                data: values,
+                data,
                 callback: (response: { data: Sheet }) => {
                     refresh()
                     snackbar({ severity: "success", text: "sheet updated" })
@@ -75,7 +80,7 @@ export const SheetModal: React.FC<SheetModalProps> = ({}) => {
             })
         } else {
             api.sheets.add({
-                data: values,
+                data,
                 callback: (response: { data: Sheet }) => {
                     refresh()
                     snackbar({ severity: "success", text: "new sheet added" })
