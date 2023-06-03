@@ -84,7 +84,8 @@ const styles: Styles = {
     menuitem: {
         color: colors.secondary,
         borderRadius: "0.2vw",
-        marginLeft: "auto",
+        marginLeft: "1vw",
+        // marginLeft: "auto",
 
         // "&:hover": {
         //     backgroundColor: colors.primary,
