@@ -2,7 +2,7 @@ import { useSnackbar } from "burgos-snackbar"
 import { useApi } from "./useApi"
 import { useAuthentication } from "./useAuthentication"
 import { useTerminal } from "./useTerminal"
-import { useState, useCallback } from "react"
+import { useState, useEffect } from "react"
 import { TextField, CircularProgress, FormGroup } from "@mui/material"
 import colors from "../colors"
 
@@ -71,6 +71,7 @@ export const useUser = () => {
             terminal.setShell("")
             terminal.setPlaceholder(`${placeholder} password`)
             terminal.stdout.setOpen(true)
+            terminal.stdout.setContentTitle("")
             terminal.stdout.setContent([<Input username={user} />])
         } else {
             // stdout current user
