@@ -16,6 +16,7 @@ interface TerminalContextValue {
     shell: string
     setShell: (shell: string) => void
     searchFieldRef: React.RefObject<HTMLInputElement>
+    stdoutInputRef: React.RefObject<HTMLInputElement>
     inputType: string
     setInputType: (type: string) => void
     placeholder: string
@@ -40,6 +41,7 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
     const [placeholder, setPlaceholder] = useState("help")
     const [login, setLogin] = useState(false)
     const searchFieldRef = useRef<HTMLInputElement>(null)
+    const stdoutInputRef = useRef<HTMLInputElement>(null)
 
     const [openStdout, setOpenStdout] = useState(false)
     const [contentStdout, setContentStdout] = useState<ReactElement[]>([])
@@ -68,6 +70,7 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
                 password: login,
                 setPassword: setLogin,
                 stdout,
+                stdoutInputRef,
             }}
         >
             {children}

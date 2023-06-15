@@ -6,8 +6,8 @@ export const useExecute = () => {
     const commands = useCommands()
     const terminal = useTerminal()
 
-    const checkFocus = () => {
-        if (document.activeElement === terminal.searchFieldRef.current) return true
+    const checkFocus = (ref: React.RefObject<HTMLInputElement>) => {
+        if (document.activeElement === ref.current) return true
     }
 
     const execute = (shell: string) => {
@@ -24,14 +24,12 @@ export const useExecute = () => {
 
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
-            const focused_search = checkFocus()
-
-            if (!focused_search && event.key === "/") {
+            if (!checkFocus(terminal.searchFieldRef) && event.key === "/") {
                 terminal.setModal(true)
             }
 
             if (terminal.modal) {
-                if (event.key === "Enter") {
+                if (!checkFocus(terminal.stdoutInputRef) && event.key === "Enter") {
                     execute(terminal.shell.trim())
                 }
             }
