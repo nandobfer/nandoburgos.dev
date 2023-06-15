@@ -1,6 +1,6 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import { Language, Sheet } from "../../definitions/languages"
-import { Paper, Skeleton } from "@mui/material"
+import { Box, Paper, Skeleton } from "@mui/material"
 import styles from "./styles"
 import { useCurrentSheets } from "../../hooks/useCurrentSheets"
 import { useArray } from "burgos-array"
@@ -12,15 +12,31 @@ export const Content: React.FC<ContentProps> = ({}) => {
     const skeletons = useArray().newArray(8)
     const { currentSheets } = useCurrentSheets()
 
+    const [error, setError] = useState(false)
+
+    useLayoutEffect(() => {
+        setError(false)
+
+        setTimeout(() => {
+            if (currentSheets.length == 0) {
+                setError(true)
+            }
+        }, 5000)
+    }, [currentSheets])
+
     return (
         <>
             {currentSheets.length > 0 ? (
                 currentSheets.map((sheet) => <SheetContainer key={sheet.id} sheet={sheet} />)
             ) : (
                 <>
-                    {skeletons.map((index) => (
-                        <Skeleton key={index} variant="rounded" sx={styles.skeleton} animation="wave" />
-                    ))}
+                    {!error ? (
+                        skeletons.map((index) => (
+                            <Skeleton key={index} variant="rounded" sx={styles.skeleton} animation="wave" />
+                        ))
+                    ) : (
+                        <Paper>nothing found</Paper>
+                    )}
                 </>
             )}
         </>
