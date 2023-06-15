@@ -78,8 +78,12 @@ export const useUser = () => {
             const user_string = authentication
                 ? ` ${authentication.id} - ${authentication.username} / ${authentication.name}`
                 : ""
-            terminal.setPlaceholder(user_string)
+            terminal.setPlaceholder(placeholder)
             terminal.setShell("")
+            terminal.stdout.setOpen(true)
+            const displayed_user = JSON.parse(JSON.stringify(authentication))
+            delete displayed_user.password
+            terminal.stdout.setContent([<pre>{JSON.stringify(displayed_user, null, 4)}</pre>])
         }
     }
 
