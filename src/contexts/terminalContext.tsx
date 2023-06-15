@@ -1,11 +1,11 @@
-import { createContext, useState, useRef, Dispatch, SetStateAction } from "react"
+import { createContext, useState, useRef, Dispatch, SetStateAction, ReactElement } from "react"
 import React from "react"
 
 interface Stdout {
     open: boolean
     setOpen: (open: boolean) => void
-    content: string[]
-    setContent: (content: string[]) => void
+    content: ReactElement[]
+    setContent: (content: ReactElement[]) => void
     contentTitle: string
     setContentTitle: (content: string) => void
 }
@@ -42,7 +42,7 @@ export const TerminalProvider: React.FC<TerminalProviderProps> = ({ children }) 
     const searchFieldRef = useRef<HTMLInputElement>(null)
 
     const [openStdout, setOpenStdout] = useState(false)
-    const [contentStdout, setContentStdout] = useState<string[]>([])
+    const [contentStdout, setContentStdout] = useState<ReactElement[]>([])
     const [contentTitleStdout, setContentTitleStdout] = useState("")
     const stdout: Stdout = {
         open: openStdout,

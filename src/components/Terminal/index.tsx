@@ -57,9 +57,10 @@ export const Terminal: React.FC<TerminalProps> = ({}) => {
                         // @ts-ignore
                         <DialogContentText sx={styles.stdout.title}>{terminal.stdout.contentTitle}</DialogContentText>
                     )}
-                    {terminal.stdout.content.map((item) => (
-                        <p key={terminal.stdout.content.indexOf(item)}>{item}</p>
-                    ))}
+                    {terminal.stdout.content.map((item) => {
+                        const Item = () => item
+                        return <Item key={terminal.stdout.content.indexOf(item)} />
+                    })}
                 </Paper>
             )}
         </Dialog>

@@ -27,7 +27,7 @@ export const useAddUser = () => {
             // terminal.setShell('')
             terminal.stdout.setOpen(true)
             terminal.stdout.setContentTitle('"adduser"')
-            terminal.stdout.setContent(["username and password are required"])
+            terminal.stdout.setContent([<p>username and password are required</p>])
         } else {
             terminal.stdout.setOpen(false)
             terminal.setShell("")
