@@ -94,6 +94,12 @@ export const Code: React.FC<CodeProps> = ({}) => {
         }
     }, [params.language])
 
+    useEffect(() => {
+        if (sheets.length > 0 && currentSheets.length == 0) {
+            setCurrentSheets(sheets.filter((sheet) => sheet.language.id == currentLanguage.id))
+        }
+    }, [sheets])
+
     return (
         <div className="Code-Page" style={styles.body}>
             <SearchField innerRef={searchFieldRef} />
