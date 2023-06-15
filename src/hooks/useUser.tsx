@@ -2,23 +2,21 @@ import { useSnackbar } from "burgos-snackbar"
 import { useApi } from "./useApi"
 import { useAuthentication } from "./useAuthentication"
 import { useTerminal } from "./useTerminal"
-import { useState, useRef } from "react"
+import { useState, useCallback } from "react"
 import { TextField, CircularProgress, FormGroup } from "@mui/material"
 import colors from "../colors"
 
 export const useUser = () => {
     const terminal = useTerminal()
     const api = useApi()
-    const [username, setUsername] = useState("")
     const { authentication, setAuthentication } = useAuthentication()
     const { snackbar } = useSnackbar()
 
-    const Input = () => {
+    const Input = ({ username }: { username: string }) => {
         const [loading, setLoading] = useState(false)
         const [password, setPassword] = useState("")
 
-        const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-            event.preventDefault()
+        const tryLogin = () => {
             if (loading) return
             if (!password) return
 
@@ -36,12 +34,15 @@ export const useUser = () => {
                     } else {
                         snackbar({ severity: "error", text: "login failed" })
                         terminal.setPlaceholder("login failed, try again")
-                        terminal.setShell("")
-                        terminal.setInputType("text")
                     }
                 },
                 finallyCallback: () => setLoading(false),
             })
+        }
+
+        const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault()
+            tryLogin()
         }
 
         return (
@@ -66,12 +67,11 @@ export const useUser = () => {
     const user = (command: string) => {
         const [placeholder, user] = command.split(" ")
         if (user) {
-            setUsername(user)
             // terminal.setInputType("password")
             terminal.setShell("")
             terminal.setPlaceholder(`${placeholder} password`)
             terminal.stdout.setOpen(true)
-            setTimeout(() => terminal.stdout.setContent([<Input />]), 500)
+            terminal.stdout.setContent([<Input username={user} />])
         } else {
             // stdout current user
 
