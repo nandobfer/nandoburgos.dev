@@ -1,0 +1,17 @@
+services:
+  app:
+    image: nandoburgos/nandoburgos.dev
+    container_name: nandoburgos.dev
+    ports:
+      - "8080:8080"
+    networks:
+      - webnet
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
+
+networks:
+  webnet:

@@ -79,6 +79,12 @@ export const LanguagesProvider: React.FC<LanguagesProviderProps> = ({ children }
             color: "",
             sheets: [],
         },
+        {
+            id: 11,
+            name: "mysql",
+            color: "",
+            sheets: [],
+        },
     ])
 
     useEffect(() => {
