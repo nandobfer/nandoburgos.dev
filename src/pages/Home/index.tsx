@@ -7,5 +7,9 @@ interface HomeProps {}
 
 export const Home: React.FC<HomeProps> = ({}) => {
     const execute = useExecute()
-    return <div className="Home-Page" style={styles.body}></div>
+    return (
+        <div className="Home-Page" style={styles.body}>
+            HELLO WORLD
+        </div>
+    )
 }
